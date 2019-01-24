@@ -1,0 +1,123 @@
+{
+    "data": [
+        {
+            "last_seen": "2019-01-24T05:10:32.288568+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "brightness": 127,
+                    "effect_list": [
+                        "colorloop",
+                        "night",
+                        "white"
+                    ],
+                    "friendly_name": "Doorway",
+                    "hs_color": [
+                        0.0,
+                        100.0
+                    ],
+                    "max_mireds": 370,
+                    "min_mireds": 154,
+                    "rgb_color": [
+                        255,
+                        0,
+                        0
+                    ],
+                    "supported_features": 63,
+                    "xy_color": [
+                        0.701,
+                        0.299
+                    ]
+                },
+                "context": {
+                    "id": "d25d43f2c8254db3b19ec9ff65599365",
+                    "user_id": null
+                },
+                "entity_id": "light.doorway",
+                "last_changed": "2019-01-24T05:10:28.002421+00:00",
+                "last_updated": "2019-01-24T05:10:28.002421+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-24T05:10:32.288568+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "brightness": 255,
+                    "effect_list": [
+                        "colorloop",
+                        "night",
+                        "white"
+                    ],
+                    "friendly_name": "Kitchen",
+                    "hs_color": [
+                        240.0,
+                        100.0
+                    ],
+                    "max_mireds": 370,
+                    "min_mireds": 154,
+                    "rgb_color": [
+                        0,
+                        0,
+                        255
+                    ],
+                    "supported_features": 63,
+                    "xy_color": [
+                        0.136,
+                        0.04
+                    ]
+                },
+                "context": {
+                    "id": "08f171915f974a1f8ad870925ed0d480",
+                    "user_id": null
+                },
+                "entity_id": "light.kitchen",
+                "last_changed": "2019-01-24T05:10:28.002653+00:00",
+                "last_updated": "2019-01-24T05:10:28.002653+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-24T05:10:32.288568+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "brightness": 255,
+                    "effect_list": [
+                        "colorloop",
+                        "night",
+                        "white"
+                    ],
+                    "friendly_name": "Hallway",
+                    "hs_color": [
+                        120.0,
+                        100.0
+                    ],
+                    "max_mireds": 370,
+                    "min_mireds": 154,
+                    "rgb_color": [
+                        0,
+                        255,
+                        0
+                    ],
+                    "supported_features": 63,
+                    "xy_color": [
+                        0.172,
+                        0.747
+                    ]
+                },
+                "context": {
+                    "id": "6db321b00200407686de2a60a256968e",
+                    "user_id": null
+                },
+                "entity_id": "light.hallway",
+                "last_changed": "2019-01-24T05:10:28.002863+00:00",
+                "last_updated": "2019-01-24T05:10:28.002863+00:00",
+                "state": "on"
+            }
+        }
+    ],
+    "key": "core.restore_state",
+    "version": 1
+}

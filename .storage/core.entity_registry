@@ -1,0 +1,107 @@
+{
+    "data": {
+        "entities": [
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.roku_4e653x011730",
+                "name": "Roku",
+                "platform": "roku",
+                "unique_id": "4E653X011730"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.samsung_6_series_55_un55ku6290",
+                "name": "TV",
+                "platform": "samsungtv",
+                "unique_id": "cb19ea84-4cfd-4dbd-83b5-52b38ba2f3df"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "a72d407294744fbaaaea9bcf18d520bb",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_packets_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets_sent"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "a51907cfc7ab4be5a18ae935bf380156",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_bytes_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_bytes_sent"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "e3452813672e432a9b1b8c24a5cdaceb",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_bytes_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_bytes_received"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "ba4a51f6d84445b2b2093dedaccb01a1",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_packets_sec_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets/sec_received"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "e0e8fd6481e9436cb3c2b6f3be077c1a",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_kbyte_sec_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_kbyte/sec_received"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "7a545f236e8b4707bba203e0036fc990",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_kbyte_sec_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_kbyte/sec_sent"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "c56116e271844e1aa9a8dec73b2698f0",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_packets_sec_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets/sec_sent"
+            },
+            {
+                "config_entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "device_id": "64aeded7dab144c39c22de0807297b17",
+                "disabled_by": null,
+                "entity_id": "sensor.verizon_fios_g1100_packets_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets_received"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "remote.roku_4e653x011730",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "4E653X011730"
+            }
+        ]
+    },
+    "key": "core.entity_registry",
+    "version": 1
+}

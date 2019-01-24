@@ -1,0 +1,19 @@
+{
+    "data": {
+        "entries": [
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "udn": "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474"
+                },
+                "domain": "upnp",
+                "entry_id": "b05f9c63fb2a4cd4af101f97833b0188",
+                "source": "discovery",
+                "title": "UPnP/IGD",
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

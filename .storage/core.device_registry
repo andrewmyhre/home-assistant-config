@@ -1,0 +1,175 @@
+{
+    "data": {
+        "devices": [
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474"
+                    ]
+                ],
+                "hub_device_id": null,
+                "id": "093b38642669482fb1a5fc93fa835eae",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474"
+                    ]
+                ],
+                "manufacturer": "Linux",
+                "model": null,
+                "name": "Verizon FiOS-G1100",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "a72d407294744fbaaaea9bcf18d520bb",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets_sent"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 packets sent",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "a51907cfc7ab4be5a18ae935bf380156",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_bytes_sent"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 bytes sent",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "e3452813672e432a9b1b8c24a5cdaceb",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_bytes_received"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 bytes received",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "ba4a51f6d84445b2b2093dedaccb01a1",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets/sec_received"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 packets/sec received",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "e0e8fd6481e9436cb3c2b6f3be077c1a",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_kbyte/sec_received"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 kbyte/sec received",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "7a545f236e8b4707bba203e0036fc990",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_kbyte/sec_sent"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 kbyte/sec sent",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "c56116e271844e1aa9a8dec73b2698f0",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets/sec_sent"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 packets/sec sent",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "b05f9c63fb2a4cd4af101f97833b0188"
+                ],
+                "connections": [],
+                "hub_device_id": "093b38642669482fb1a5fc93fa835eae",
+                "id": "64aeded7dab144c39c22de0807297b17",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:14bd3fe9-1629-49bf-b7bb-ebef73c4a474_packets_received"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "Verizon FiOS-G1100 packets received",
+                "sw_version": null
+            }
+        ]
+    },
+    "key": "core.device_registry",
+    "version": 1
+}
