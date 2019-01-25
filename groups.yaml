@@ -1,0 +1,6 @@
+tracker_andrew:
+  name: Andrew
+  view: yes
+  entities:
+    - device_tracker.andrews_phone_wifi
+    - device_tracker.andrews_phone_bt

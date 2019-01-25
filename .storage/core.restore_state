@@ -1,120 +1,259 @@
 {
     "data": [
         {
-            "last_seen": "2019-01-24T05:10:32.288568+00:00",
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
             "state": {
                 "attributes": {
                     "assumed_state": true,
-                    "brightness": 127,
+                    "brightness": 150,
+                    "color_temp": 454,
                     "effect_list": [
                         "colorloop",
                         "night",
                         "white"
                     ],
                     "friendly_name": "Doorway",
-                    "hs_color": [
-                        0.0,
-                        100.0
-                    ],
                     "max_mireds": 370,
                     "min_mireds": 154,
-                    "rgb_color": [
-                        255,
-                        0,
-                        0
-                    ],
-                    "supported_features": 63,
-                    "xy_color": [
-                        0.701,
-                        0.299
-                    ]
+                    "supported_features": 63
                 },
                 "context": {
-                    "id": "d25d43f2c8254db3b19ec9ff65599365",
+                    "id": "6a9e1383bd6a4cdbb33e12d9168a9cf7",
                     "user_id": null
                 },
                 "entity_id": "light.doorway",
-                "last_changed": "2019-01-24T05:10:28.002421+00:00",
-                "last_updated": "2019-01-24T05:10:28.002421+00:00",
+                "last_changed": "2019-01-25T02:49:29.339892+00:00",
+                "last_updated": "2019-01-25T02:49:29.339892+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-01-24T05:10:32.288568+00:00",
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
             "state": {
                 "attributes": {
                     "assumed_state": true,
-                    "brightness": 255,
+                    "brightness": 190,
+                    "color_temp": 454,
                     "effect_list": [
                         "colorloop",
                         "night",
                         "white"
                     ],
                     "friendly_name": "Kitchen",
-                    "hs_color": [
-                        240.0,
-                        100.0
-                    ],
                     "max_mireds": 370,
                     "min_mireds": 154,
-                    "rgb_color": [
-                        0,
-                        0,
-                        255
-                    ],
-                    "supported_features": 63,
-                    "xy_color": [
-                        0.136,
-                        0.04
-                    ]
+                    "supported_features": 63
                 },
                 "context": {
-                    "id": "08f171915f974a1f8ad870925ed0d480",
+                    "id": "0bcb2ee39fbe404fb50c0d49db866ca5",
                     "user_id": null
                 },
                 "entity_id": "light.kitchen",
-                "last_changed": "2019-01-24T05:10:28.002653+00:00",
-                "last_updated": "2019-01-24T05:10:28.002653+00:00",
+                "last_changed": "2019-01-25T02:49:29.348972+00:00",
+                "last_updated": "2019-01-25T02:49:29.348972+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-01-24T05:10:32.288568+00:00",
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
             "state": {
                 "attributes": {
                     "assumed_state": true,
-                    "brightness": 255,
+                    "brightness": 150,
+                    "color_temp": 454,
                     "effect_list": [
                         "colorloop",
                         "night",
                         "white"
                     ],
                     "friendly_name": "Hallway",
-                    "hs_color": [
-                        120.0,
-                        100.0
-                    ],
                     "max_mireds": 370,
                     "min_mireds": 154,
-                    "rgb_color": [
-                        0,
-                        255,
-                        0
-                    ],
-                    "supported_features": 63,
-                    "xy_color": [
-                        0.172,
-                        0.747
-                    ]
+                    "supported_features": 63
                 },
                 "context": {
-                    "id": "6db321b00200407686de2a60a256968e",
+                    "id": "6a9e1383bd6a4cdbb33e12d9168a9cf7",
                     "user_id": null
                 },
                 "entity_id": "light.hallway",
-                "last_changed": "2019-01-24T05:10:28.002863+00:00",
-                "last_updated": "2019-01-24T05:10:28.002863+00:00",
+                "last_changed": "2019-01-25T02:49:29.346126+00:00",
+                "last_updated": "2019-01-25T02:49:29.346126+00:00",
                 "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Andrew's Phone (WIFI)",
+                    "gps_accuracy": 0,
+                    "ip": "192.168.1.171",
+                    "latitude": 40.76976,
+                    "longitude": -73.95458,
+                    "scanner": "QuantumGatewayDeviceScanner",
+                    "source_type": "router"
+                },
+                "context": {
+                    "id": "72c1d183f1f8408eb7d89cd70aa36890",
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.andrews_phone_wifi",
+                "last_changed": "2019-01-25T02:49:29.138033+00:00",
+                "last_updated": "2019-01-25T03:03:15.215471+00:00",
+                "state": "home"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Andrew's Phone (BT)",
+                    "source_type": "bluetooth"
+                },
+                "context": {
+                    "id": "78b0bdd62f13446eb46102f9f9d51052",
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.andrews_phone_bt",
+                "last_changed": "2019-01-25T02:49:33.834313+00:00",
+                "last_updated": "2019-01-25T02:49:33.834313+00:00",
+                "state": "home"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Turn on lights when the sun sets and I am home",
+                    "last_triggered": "2019-01-24T06:41:20.706636+00:00"
+                },
+                "context": {
+                    "id": "690063cde1e54e1a9f1fb2644eba6115",
+                    "user_id": null
+                },
+                "entity_id": "automation.turn_on_lights_when_the_sun_sets_and_i_am_home",
+                "last_changed": "2019-01-25T02:57:13.294364+00:00",
+                "last_updated": "2019-01-25T02:57:13.294364+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Turn off the lights when I leave home",
+                    "last_triggered": "2019-01-25T02:49:06.366546+00:00"
+                },
+                "context": {
+                    "id": "d3f297ca14004cf4b44c58a969e6317a",
+                    "user_id": null
+                },
+                "entity_id": "automation.turn_off_the_lights_when_i_leave_home",
+                "last_changed": "2019-01-25T02:57:13.294800+00:00",
+                "last_updated": "2019-01-25T02:57:13.294800+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Turn on the kitchen light in the morning",
+                    "last_triggered": "2019-01-24T12:13:14.010903+00:00"
+                },
+                "context": {
+                    "id": "a8ffab45ed704f57beafefb67dfef3bf",
+                    "user_id": null
+                },
+                "entity_id": "automation.turn_on_the_kitchen_light_in_the_morning",
+                "last_changed": "2019-01-25T02:57:13.295298+00:00",
+                "last_updated": "2019-01-25T02:57:13.295298+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Begin vacuuming",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "fc565fcd0d1849d18ee9385bd25cd1f3",
+                    "user_id": null
+                },
+                "entity_id": "automation.begin_vacuuming",
+                "last_changed": "2019-01-25T02:57:13.296599+00:00",
+                "last_updated": "2019-01-25T02:57:13.296599+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Andrew is home",
+                    "last_triggered": "2019-01-25T02:49:29.550917+00:00"
+                },
+                "context": {
+                    "id": "2a959fa72b2e4587b6a83412ce54b3b8",
+                    "user_id": null
+                },
+                "entity_id": "automation.andrew_is_home",
+                "last_changed": "2019-01-25T02:57:13.296953+00:00",
+                "last_updated": "2019-01-25T02:57:13.296953+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Rainy Day",
+                    "last_triggered": "2019-01-24T06:34:27.421604+00:00"
+                },
+                "context": {
+                    "id": "0b3ac5ae1b6241dfb253df2602691cdc",
+                    "user_id": null
+                },
+                "entity_id": "automation.rainy_day",
+                "last_changed": "2019-01-25T02:57:13.297306+00:00",
+                "last_updated": "2019-01-25T02:57:13.297306+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T03:03:19.001363+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Dark Morning",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "dbdb54ef76e540db9303802eae18358f",
+                    "user_id": null
+                },
+                "entity_id": "automation.dark_morning",
+                "last_changed": "2019-01-25T02:57:13.297660+00:00",
+                "last_updated": "2019-01-25T02:57:13.297660+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-01-25T02:28:13.680277+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Triby-5080",
+                    "source_type": "bluetooth"
+                },
+                "context": {
+                    "id": "9d55992201d84d46af52f2d17ff60225",
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.triby_5080",
+                "last_changed": "2019-01-25T02:28:05.001692+00:00",
+                "last_updated": "2019-01-25T02:28:05.001692+00:00",
+                "state": "not_home"
             }
         }
     ],

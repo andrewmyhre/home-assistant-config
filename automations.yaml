@@ -1,1 +1,135 @@
-[]
+- alias: "Andrew is home"
+  trigger:
+    - platform: state
+      entity_id: group.tracker_andrew
+      from: 'not_home'
+      to: 'home'
+  action:
+    - service: notify.slack
+      data:
+        message: "Andrew is home"
+    - service: homeassistant.turn_on
+      entity_id: scene.evening
+
+- alias: "Send roomba home when Andrew comes home"
+  trigger:
+    - platform: state
+      entity_id: group.tracker_andrew
+      from: 'not_home'
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: vacuum.roomba
+      state: 'on'
+  action:
+    - service: vacuum.return_to_base
+      entity_id: vacuum.roomba
+
+- alias: "Turn on lights when the sun sets and I am home"
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:45:00"
+  condition:
+    - condition: state
+      entity_id: group.tracker_andrew
+      state: home
+  action:
+    - service: homeassistant.turn_on
+      entity_id: scene.evening
+    - service: notify.slack
+      data:
+        message: "The sun is setting soon and you're home so I turned the lights on"
+
+- alias: "Turn off the lights when I leave home"
+  trigger:
+    - platform: state
+      entity_id: group.tracker_andrew
+      from: 'home'
+      to: 'not_home'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights
+    - service: homeassistant.turn_off
+      entity_id: switch.living_room
+    - service: notify.slack
+      data:
+        message: "You left home so I turned the lights off"
+
+- alias: "Turn on the kitchen light in the morning"
+  trigger:
+    platform: sun
+    event: sunrise
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: group.tracker_andrew
+        state: home
+  action:
+    - service: homeassistant.turn_on
+      data:       
+        entity_id:
+        - light.Kitchen
+        brightness: 190
+        color_name: "warm white"
+    - service: notify.slack
+      data: 
+        message: "Good morning, I turned the lights on in the kitchen"
+
+- alias: 'Rainy Day'
+  trigger:
+    - platform: state
+      entity_id: sensor.precip_intensity
+      to: 'rain'
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: group.tracker_andrew
+          state: home
+    - condition: time
+      after: '14:00'
+      before: '23:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: scene.evening
+    - service: notify.slack
+      data: 
+        message: "It's raining so I turned the lights on"
+
+- alias: "Dark Morning"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_cloud_coverage_0
+      above: 70
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: group.tracker_andrew
+          state: home
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: scene.evening
+    - service: notify.slack
+      data: 
+        message: "It's dark so I turned the lights on"
+
+- alias: "Begin vacuuming"
+  trigger:
+    - platform: time
+      at: '11:00:00'
+  condition:
+    - condition: state
+      entity_id: group.tracker_andrew
+      state: not_home
+  action:
+    - service: vacuum.start
+      entity_id: vacuum.roomba
+    - service: notify.slack
+      data:
+        message: "I started the Roomba on a cleaning cycle"
