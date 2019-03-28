@@ -1,0 +1,73 @@
+- platform: yr
+- platform: darksky
+  api_key: 67ddd9c4685908120132aaa3253821f7
+  forecast:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+    - precip_intensity
+    - precip_probability
+    - precip_type
+    - precip_accumulation
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - wind_gust
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - sunrise_time
+    - sunset_time
+  update_interval:
+    minutes: 5
+
+- platform: template
+  sensors:
+    roomba_battery_level:
+      value_template: >
+        {{ states.vacuum.roomba.attributes.battery_level }}
+      friendly_name: Battery Level
+      unit_of_measurement: '%'
+      icon_template: '{{ states.vacuum.roomba.attributes.battery_icon }}'
+
+- platform: template
+  sensors:
+    roomba_current_status:
+      value_template: >
+        {{ states.vacuum.roomba.attributes.status }}
+      friendly_name: Status
+
+- platform: template
+  sensors:
+    roomba_bin_full:
+      value_template: >-
+        {% if is_state('status.vacuum.roomba.attributes.bin_full', 'true') %}
+        Bin is full
+        {% else %}
+        Bin is not full
+        {% endif %}
+      friendly_name: Bin full
+
+- platform: template
+  sensors:
+    roomba_status:
+      value_template: >
+        {% if is_state('status.vacuum.roomba.attributes.bin_full', 'true') %}
+        {{ states.vacuum.roomba.attributes.status }}
+
+        Bin is full
+        {% else %}
+        {{ states.vacuum.roomba.attributes.status }}
+
+        Bin is not full
+        {% endif %}
+      icon_template: '{{ states.vacuum.roomba.attributes.battery_icon }}'
+      friendly_name_template: '{{ states.vacuum.roomba.attributes.battery_level }}%'
+
+

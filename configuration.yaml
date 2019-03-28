@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 40.769760
-  longitude: -73.954580
+  latitude: 40.7701572
+  longitude: -73.9567542
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 200
   # metric for Metric, imperial for Imperial
@@ -18,6 +18,7 @@ introduction:
 
 # Enables the frontend
 frontend:
+  themes: !include_dir_merge_named themes
 
 # Enables configuration UI
 config:
@@ -50,35 +51,24 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
+zone:
+  - name: Home
+    latitude: 40.7701572
+    longitude: -73.9567542
+    radius: 20
+    icon: mdi:home
+  - name: Work
+    latitude: 40.739611
+    longitude: -73.992365
+    radius: 50
+    icon: mdi:office-building
+
+
 # Track the sun
 sun:
 
 # Sensors
-sensor:
-  # Weather prediction
-  - platform: yr
-  - platform: darksky
-    api_key: 67ddd9c4685908120132aaa3253821f7
-    forecast:
-      - 0
-    monitored_conditions:
-      - summary
-      - icon
-      - temperature
-      - precip_intensity
-      - precip_probability
-      - precip_type
-      - precip_accumulation
-      - temperature
-      - apparent_temperature
-      - wind_speed
-      - wind_gust
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
-      - sunrise_time
-      - sunset_time
-      - cloud_cover
+sensor: !include sensors.yaml
 
 # Text to speech
 tts:
@@ -96,6 +86,9 @@ cloud:
         - media_player.tv_ha
         - scene.movie
         - scene.evening
+        - scene.kitchenlow
+        - scene.kitchenhigh
+        - scene.eveninglow
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -109,15 +102,16 @@ device_tracker:
       track_new_devices: true
       hide_if_away: false
     interval_seconds: 10
-    consider_home: 60
+    consider_home: 300
   - platform: bluetooth_le_tracker
     interval_seconds: 10
-    consider_home: 60
+    consider_home: 300
   - platform: bluetooth_tracker
     interval_seconds: 10
-    consider_home: 60
+    consider_home: 300
   - platform: nmap_tracker
     hosts: 192.168.1.0/24
+  - platform: gpslogger
 
 notify:
   - name: slack
@@ -161,30 +155,75 @@ scene:
     entities: 
       light.hallway:
         state: true
-        color_name: "warm white"
+        color_temp: 454
         brightness: 26
       light.doorway:
         state: true
-        color_name: "warm white"
         brightness: 26
+        color_temp: 454
       switch.living_room:
         state: false
+  - name: LowLights
+    entities:
+      light.hallway:
+        state: true
+        brightness: 60
+        color_temp: 454
+      switch.living_room:
+        state: true
+      light.doorway:
+        state: true
+        brightness: 60
+        color_temp: 454
+      light.kitchen:
+        state: true
+        brightness: 60
+        color_temp: 454
+      light.bedroom:
+        brightness: 35
+        color_temp: 60
+        state: true
+  - name: EveningLow
+    entities:
+      light.hallway:
+        state: true
+        brightness: 60
+        color_temp: 454
+      switch.living_room:
+        state: true
+      light.doorway:
+        state: true
+        brightness: 60
+        color_temp: 454
+      light.kitchen:
+        state: true
+        brightness: 190
+        color_temp: 454
+      light.bedroom:
+        brightness: 35
+        color_temp: 454
+        state: true
+
   - name: Evening
     entities:
       light.hallway:
         state: true
-        color_name: "warm white"
-        brightness: 150
+        brightness: 127
+        color_temp: 454
       switch.living_room:
         state: true
       light.doorway:
         state: true
-        color_name: "warm white"
-        brightness: 150
+        brightness: 127
+        color_temp: 454
       light.kitchen:
         state: true
-        color_name: "warm white"
         brightness: 190
+        color_temp: 454
+      light.bedroom:
+        brightness: 35
+        color_temp: 454
+        state: true
   - name: AllLightsOff
     entities:
       light.hallway:
@@ -201,10 +240,58 @@ scene:
         state: false
         color_name: "warm white"
         brightness: 0
+  - name: kitchenlow
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 25
+        color_temp: 454
+    friendly_name: "Kitchen Low"
+    alexa_description: "Kitchen Low"
+    alexa_display_categories: "SCENE"
+    alexa_hidden: false
+  - name: kitchenhigh
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 200
+        color_temp: 454
+    friendly_name: "Kitchen High"
+    alexa_description: "Kitchen High"
+    alexa_display_categories: "SCENE"
+    alexa_hidden: false
+
+ifttt:
+  key: bD9EVd6gCvWCIw9JEUoZk7
 
 vacuum:
   - platform: roomba
     host: 192.168.1.181
     username: 3175000031817670
     password: ":1:1546059757:xzGkmlb33j6Y5frG"
+
+weather:
+  - platform: darksky
+    api_key: 67ddd9c4685908120132aaa3253821f7
+    mode: daily
+
+input_select:
+  hass_theme:
+    name: HASS Themes
+    options:
+      - default
+      - amoled
+      - dark
+      - sublimation
+      - darkred
+      - darkcyan
+      - midnight
+      - darkorange
+      - material_dark_green
+      - slate
+      - solarized_dark
+      - solarized_light
+      - teal
+    initial: default
+    icon: mdi:theme-light-dark
 

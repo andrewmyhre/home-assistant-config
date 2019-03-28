@@ -4,12 +4,18 @@
       entity_id: group.tracker_andrew
       from: 'not_home'
       to: 'home'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
   action:
     - service: notify.slack
       data:
         message: "Andrew is home"
     - service: homeassistant.turn_on
       entity_id: scene.evening
+    - service: ifttt.trigger
+      data: {"event": "light_living_room_warm_white"}
 
 - alias: "Send roomba home when Andrew comes home"
   trigger:
@@ -37,6 +43,8 @@
   action:
     - service: homeassistant.turn_on
       entity_id: scene.evening
+    - service: ifttt.trigger
+      data: {"event": "light_living_room_warm_white"}
     - service: notify.slack
       data:
         message: "The sun is setting soon and you're home so I turned the lights on"
@@ -52,6 +60,8 @@
       entity_id: group.all_lights
     - service: homeassistant.turn_off
       entity_id: switch.living_room
+    - service: ifttt.trigger
+      data: {"event": "light_living_room_off"}
     - service: notify.slack
       data:
         message: "You left home so I turned the lights off"
@@ -128,8 +138,94 @@
       entity_id: group.tracker_andrew
       state: not_home
   action:
-    - service: vacuum.start
+    - service: vacuum.turn_on
       entity_id: vacuum.roomba
     - service: notify.slack
       data:
         message: "I started the Roomba on a cleaning cycle"
+
+- alias: "TV On - Received IFTTT Webhook"
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: tv_on
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      source: "Home"
+
+- alias: "Open Youtube - Received IFTTT Webhook"
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: tv_open_youtube
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      source: "YouTube"
+
+- alias: "Open HBO Now - Received IFTTT Webhook"
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: tv_open_hbonow
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      source: "HBO NOW"
+
+- alias: "Open Netflix - Received IFTTT Webhook"
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: tv_open_netflix
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      source: "Netflix"
+
+- alias: "Open Hulu - Received IFTTT Webhook"
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: tv_open_hulu
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      source: "Hulu"
+
+- alias: "Open Prime Video - Received IFTTT Webhook"
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: tv_open_primevideo
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      source: "Prime Video"
+
+- alias: "Select theme"
+  id: hass_theme
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_select.hass_theme
+  action:
+    - service: frontend.set_theme
+      data_template:
+        name: "{{ states.input_select.hass_theme.state }}"
+
+
+
