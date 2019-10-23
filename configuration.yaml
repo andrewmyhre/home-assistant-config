@@ -13,8 +13,10 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+system_health:
+
 # Show links to resources in log and frontend
-introduction:
+#introduction:
 
 # Enables the frontend
 frontend:
@@ -72,7 +74,8 @@ sensor: !include sensors.yaml
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 # Cloud
 cloud:
@@ -111,7 +114,6 @@ device_tracker:
     consider_home: 300
   - platform: nmap_tracker
     hosts: 192.168.1.0/24
-  - platform: gpslogger
 
 notify:
   - name: slack
@@ -120,6 +122,8 @@ notify:
     default_channel: '#andrew-is-awesome'
     username: "@homeassistant"
     icon: ":house:"
+
+tplink:
 
 light:
   - platform: limitlessled
@@ -140,6 +144,7 @@ light:
   - platform: tplink
     host: 192.168.1.192
     name: Bedroom
+
 media_player:
   - platform: roku
   - platform: samsungtv
@@ -208,44 +213,57 @@ scene:
     entities:
       light.hallway:
         state: true
-        brightness: 127
-        color_temp: 454
+        brightness: 150
+        color_temp: 1000
       switch.living_room:
         state: true
       light.doorway:
         state: true
-        brightness: 127
-        color_temp: 454
+        brightness: 150
+        color_temp: 1000
       light.kitchen:
         state: true
-        brightness: 190
-        color_temp: 454
+        brightness: 150
+        color_temp: 1000
       light.bedroom:
         brightness: 35
-        color_temp: 454
+        color_temp: 1000
         state: true
+      light.living_room_bulb_1:
+        state: true
+        brightness: 89
+        color_temp: 1000
+      light.living_room_bulb_2:
+        state: true
+        brightness: 89
+        color_temp: 1000
+      light.living_room_bulb_3:
+        state: true
+        brightness: 89
+        color_temp: 1000
+
   - name: AllLightsOff
     entities:
       light.hallway:
         state: false
-        color_name: "warm white"
+        color_temp: 370
         brightness: 0
       switch.living_room:
         state: false
       light.doorway:
         state: false
-        color_name: "warm white"
+        color_temp: 370
         brightness: 0
       light.kitchen:
         state: false
-        color_name: "warm white"
+        color_temp: 370
         brightness: 0
   - name: kitchenlow
     entities:
       light.kitchen:
         state: true
         brightness: 25
-        color_temp: 454
+        color_temp: 370
     friendly_name: "Kitchen Low"
     alexa_description: "Kitchen Low"
     alexa_display_categories: "SCENE"
@@ -263,6 +281,11 @@ scene:
 
 ifttt:
   key: bD9EVd6gCvWCIw9JEUoZk7
+
+tuya:
+  username: "andrew.myhre@gmail.com"
+  password: "Z2@#CNNg^eHH9dz6TGQ"
+  country_code: "1"
 
 vacuum:
   - platform: roomba
@@ -295,3 +318,11 @@ input_select:
     initial: default
     icon: mdi:theme-light-dark
 
+camera:
+  - platform: generic
+    name: Living room cam
+    still_image_url: http://127.0.0.1:8081
+#    mjpeg_url: http://127.0.0.1:8081
+    stream_source: http://127.0.0.1:8081
+
+stream:

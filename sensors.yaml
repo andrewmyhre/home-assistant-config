@@ -24,8 +24,6 @@
     - daily_summary
     - sunrise_time
     - sunset_time
-  update_interval:
-    minutes: 5
 
 - platform: template
   sensors:
