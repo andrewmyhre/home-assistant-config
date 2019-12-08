@@ -226,7 +226,7 @@ scene:
       light.kitchen:
         state: true
         brightness: 140
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 35
@@ -235,7 +235,7 @@ scene:
       light.lounge:
         state: true
         brightness: 80
-        color_temp: 2500
+        color_name: "Warm White"
 
 
   - name: Evening3
@@ -243,7 +243,7 @@ scene:
       light.kitchen:
         state: true
         brightness: 130
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 35
@@ -252,14 +252,14 @@ scene:
       light.lounge:
         state: true
         brightness: 70
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening4
     entities:
       light.kitchen:
         state: true
         brightness: 120
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 35
@@ -268,14 +268,14 @@ scene:
       light.lounge:
         state: true
         brightness: 60
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening5
     entities:
       light.kitchen:
         state: true
         brightness: 110
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 35
@@ -284,14 +284,14 @@ scene:
       light.lounge:
         state: true
         brightness: 50
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening6
     entities:
       light.kitchen:
         state: true
         brightness: 100
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 35
@@ -300,14 +300,14 @@ scene:
       light.lounge:
         state: true
         brightness: 40
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening7
     entities:
       light.kitchen:
         state: true
         brightness: 90
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 35
@@ -316,14 +316,14 @@ scene:
       light.lounge:
         state: true
         brightness: 30
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening8
     entities:
       light.kitchen:
         state: true
         brightness: 80
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 35
@@ -332,7 +332,7 @@ scene:
       light.lounge:
         state: true
         brightness: 20
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening9
     entities:
@@ -340,7 +340,7 @@ scene:
         transition: 60
         state: true
         brightness: 70
-        color_temp: 2500
+        color_name: "Warm White"
       light.bedroom:
         brightness: 35
         color_temp: 2500
@@ -348,14 +348,14 @@ scene:
       light.lounge:
         state: true
         brightness: 10
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening10
     entities:
       light.kitchen:
         state: true
         brightness: 10
-        color_temp: 2500
+        color_name: "Warm White"
         transition: 60
       light.bedroom:
         brightness: 10
@@ -364,23 +364,21 @@ scene:
       light.lounge:
         state: true
         brightness: 10
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: AllLightsOff
     entities:
-      light.hallway:
-        state: false
-        color_temp: 370
-        brightness: 0
       light.lounge:
         state: false
-      light.doorway:
-        state: false
-        color_temp: 370
+        color_name: "Warm White"
         brightness: 0
       light.kitchen:
         state: false
-        color_temp: 370
+        color_name: "Warm White"
+        brightness: 0
+      light.bedroom:
+        state: false
+        color_name: Warm White"
         brightness: 0
   - name: kitchenlow
     entities:
