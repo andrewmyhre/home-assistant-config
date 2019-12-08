@@ -115,13 +115,13 @@ device_tracker:
   - platform: nmap_tracker
     hosts: 192.168.1.0/24
 
-notify:
-  - name: slack
-    platform: slack
-    api_key: 
-    default_channel: '#andrew-is-awesome'
-    username: "@homeassistant"
-    icon: ":house:"
+# notify:
+#   - name: slack
+#     platform: slack
+#     api_key: 
+#     default_channel: '#andrew-is-awesome'
+#     username: "@homeassistant"
+#     icon: ":house:"
 
 tplink:
 
