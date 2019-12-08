@@ -118,7 +118,7 @@ device_tracker:
 notify:
   - name: slack
     platform: slack
-    api_key: xoxb-532924045973-532561432644-8h8TQbtAAXjGrDDPmmaDyyZC
+    api_key: 
     default_channel: '#andrew-is-awesome'
     username: "@homeassistant"
     icon: ":house:"
