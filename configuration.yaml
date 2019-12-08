@@ -411,7 +411,7 @@ tuya:
 
 vacuum:
   - platform: roomba
-    host: 192.168.1.181
+    host: 192.168.1.9
     username: 3175000031817670
     password: ":1:1546059757:xzGkmlb33j6Y5frG"
 
