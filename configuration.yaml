@@ -141,9 +141,22 @@ light:
           type: rgbww
           name: Kitchen
           fade: true
-  - platform: tplink
-    host: 192.168.1.192
+  - platform: group
+    entities:
+      - light.bedroom_lamp
     name: Bedroom
+  - platform: group
+    name: Kitchen
+    entities:
+      - light.kitchen_light_1
+      - light.kitchen_light_2
+  - platform: group
+    name: Lounge
+    entities:
+      - light.lounge_light_1
+      - light.lounge_light_2
+      - light.lounge_light_3
+
 
 media_player:
   - platform: roku
@@ -170,16 +183,8 @@ scene:
         state: false
   - name: LowLights
     entities:
-      light.hallway:
-        state: true
-        brightness: 60
-        color_temp: 454
       switch.living_room:
         state: true
-      light.doorway:
-        state: true
-        brightness: 60
-        color_temp: 454
       light.kitchen:
         state: true
         brightness: 60
@@ -190,16 +195,8 @@ scene:
         state: true
   - name: EveningLow
     entities:
-      light.hallway:
-        state: true
-        brightness: 60
-        color_temp: 454
       switch.living_room:
         state: true
-      light.doorway:
-        state: true
-        brightness: 60
-        color_temp: 454
       light.kitchen:
         state: true
         brightness: 190
@@ -211,36 +208,163 @@ scene:
 
   - name: Evening
     entities:
-      light.hallway:
-        state: true
-        brightness: 150
-        color_temp: 1000
-      switch.living_room:
-        state: true
-      light.doorway:
-        state: true
-        brightness: 150
-        color_temp: 1000
       light.kitchen:
         state: true
         brightness: 150
-        color_temp: 1000
+        color_temp: 2500
       light.bedroom:
         brightness: 35
-        color_temp: 1000
+        color_temp: 2500
         state: true
-      light.living_room_bulb_1:
-        state: true
-        brightness: 89
-        color_temp: 1000
-      light.living_room_bulb_2:
+      light.lounge:
         state: true
         brightness: 89
-        color_temp: 1000
-      light.living_room_bulb_3:
+        color_temp: 2500
+
+  - name: Evening2
+    entities:
+      light.kitchen:
         state: true
-        brightness: 89
-        color_temp: 1000
+        brightness: 140
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 80
+        color_temp: 2500
+
+
+  - name: Evening3
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 130
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 70
+        color_temp: 2500
+
+  - name: Evening4
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 120
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 60
+        color_temp: 2500
+
+  - name: Evening5
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 110
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 50
+        color_temp: 2500
+
+  - name: Evening6
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 100
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 40
+        color_temp: 2500
+
+  - name: Evening7
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 90
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 30
+        color_temp: 2500
+
+  - name: Evening8
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 80
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 20
+        color_temp: 2500
+
+  - name: Evening9
+    entities:
+      light.kitchen:
+        transition: 60
+        state: true
+        brightness: 70
+        color_temp: 2500
+      light.bedroom:
+        brightness: 35
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 10
+        color_temp: 2500
+
+  - name: Evening10
+    entities:
+      light.kitchen:
+        state: true
+        brightness: 10
+        color_temp: 2500
+        transition: 60
+      light.bedroom:
+        brightness: 10
+        color_temp: 2500
+        state: true
+      light.lounge:
+        state: true
+        brightness: 10
+        color_temp: 2500
 
   - name: AllLightsOff
     entities:
@@ -248,7 +372,7 @@ scene:
         state: false
         color_temp: 370
         brightness: 0
-      switch.living_room:
+      light.lounge:
         state: false
       light.doorway:
         state: false

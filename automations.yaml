@@ -45,6 +45,123 @@
     data:
       message: The sun is setting soon and you're home so I turned the lights on
   id: eb5645437abf48c886421a0fdb48fdc1
+- alias: evening2
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:15:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening2
+  id: 69a0c511e1e54f3c9d0c05e03a42bf59
+- alias: evening3
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:45:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening3
+  id: 7e777b1fd90a47d9992e39697723e852
+- alias: evening4
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 01:15:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening4
+  id: 9d3952a62f2544caac2f69156ef78ff2
+- alias: evening5
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 01:45:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening5
+  id: 80f82879d29e4c0eba747bf4f446cf7d
+- alias: evening6
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 02:15:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening6
+  id: 03d0091b8a87455fadca91e74a98be80
+- alias: evening7
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 02:45:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening7
+  id: 8b91e33f8ff846e98bcc3213ea2383e8
+- alias: evening8
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 03:15:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening8
+  id: f22f9438a104486da4a4d6ceeaaecb36
+- alias: evening9
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 03:45:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening9
+  id: de3f2e90c9ad47beb98bc79376af0cd0
+- alias: evening10
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 04:15:00
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: scene.Evening10
+  id: 0a26026b0dad41958cd91ffa93cd85b8
 - alias: Turn off the lights when I leave home
   trigger:
   - platform: state
@@ -63,29 +180,28 @@
     data:
       message: You left home so I turned the lights off
   id: 2155018ca7674665b1cce7b4b2c20b8d
-- alias: Turn on the kitchen light in the morning
+- id: 09eba6d35c8f477c97f2c6659c9078b6
+  alias: Turn on the kitchen light in the morning
   trigger:
+  - event: sunrise
     platform: sun
-    event: sunrise
   condition:
-    condition: or
+  - condition: or
     conditions:
     - condition: state
       entity_id: group.tracker_andrew
       state: home
   action:
-  - service: homeassistant.turn_on
-    data:
-      entity_id:
-      - light.Kitchen
+  - data:
       brightness: 192
       color_temp: 370
-      min_mireds: 154
+      entity_id: light.kitchen
       max_mireds: 370
-  - service: notify.slack
-    data:
+      min_mireds: 154
+    service: light.turn_on
+  - data:
       message: Good morning, I turned the lights on in the kitchen
-  id: 09eba6d35c8f477c97f2c6659c9078b6
+    service: notify.slack
 - alias: Rainy Day
   trigger:
   - platform: state
@@ -246,8 +362,7 @@
     data:
       event: light_living_room_off
   id: 1f8c980eff8d44fbad564d5ccee0307d
-
-- alias: "Light show"
+- alias: Light show
   id: light_show
   trigger:
   - platform: state
@@ -263,75 +378,108 @@
   action:
   - service: light.turn_on
     entity_id: light.bedroom_lamp
-# initial
   - service: light.turn_on
     data_template:
       entity_id: light.doorway
       brightness: 1
-      rgb_color: [255,0,255]
+      rgb_color:
+      - 255
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.hallway
       brightness: 1
-      rgb_color: [255,0,255]
+      rgb_color:
+      - 255
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.kitchen
       brightness: 1
-      rgb_color: [255,0,255]
+      rgb_color:
+      - 255
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.living_room_bulb_1
       brightness: 1
-      rgb_color: [255,0,0]
+      rgb_color:
+      - 255
+      - 0
+      - 0
   - service: light.turn_on
     data_template:
       entity_id: light.living_room_bulb_2
       brightness: 1
-      rgb_color: [0,255,0]
+      rgb_color:
+      - 0
+      - 255
+      - 0
   - service: light.turn_on
     data_template:
       entity_id: light.living_room_bulb_3
       brightness: 1
-      rgb_color: [0,0,255]
-# first transition
+      rgb_color:
+      - 0
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.doorway
       brightness: 255
       transition: 5
-      rgb_color: [255,0,255]
+      rgb_color:
+      - 255
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.hallway
       brightness: 255
       transition: 5
-      rgb_color: [255,0,255]
+      rgb_color:
+      - 255
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.kitchen
       brightness: 255
       transition: 5
-      rgb_color: [255,0,255]
+      rgb_color:
+      - 255
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.living_room_bulb_1
       brightness: 255
       transition: 15
-      rgb_color: [0,255,0]
+      rgb_color:
+      - 0
+      - 255
+      - 0
   - service: light.turn_on
     data_template:
       entity_id: light.living_room_bulb_2
       brightness: 255
       transition: 15
-      rgb_color: [0,0,255]
+      rgb_color:
+      - 0
+      - 0
+      - 255
   - service: light.turn_on
     data_template:
       entity_id: light.living_room_bulb_3
       brightness: 255
       transition: 15
-      rgb_color: [255,0,0]
-# second transition
+      rgb_color:
+      - 255
+      - 0
+      - 0
   - service: light.turn_on
     data_template:
       entity_id: light.doorway
