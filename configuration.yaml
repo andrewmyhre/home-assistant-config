@@ -211,7 +211,7 @@ scene:
       light.kitchen:
         state: true
         brightness: 150
-        color_temp: 2500
+        color_name: "Warm White"
       light.bedroom:
         brightness: 35
         color_temp: 2500
@@ -219,7 +219,7 @@ scene:
       light.lounge:
         state: true
         brightness: 89
-        color_temp: 2500
+        color_name: "Warm White"
 
   - name: Evening2
     entities:
