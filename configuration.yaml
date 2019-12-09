@@ -171,7 +171,7 @@ switch livingroom:
 scene:
   - name: morning
     entities: 
-      light.hallway:
+      light.kitchen:
         state: true
         color_name: "Warm White"
         brightness: 194
