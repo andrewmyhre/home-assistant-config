@@ -169,6 +169,12 @@ switch livingroom:
     host: 192.168.1.217
     name: "Living Room"
 scene:
+  - name: morning
+    entities: 
+      light.hallway:
+        state: true
+        color_name: "Warm White"
+        brightness: 194
   - name: Movie
     entities: 
       light.hallway:

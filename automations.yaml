@@ -192,13 +192,8 @@
       entity_id: group.tracker_andrew
       state: home
   action:
-  - data:
-      brightness: 192
-      color_temp: 370
-      entity_id: light.kitchen
-      max_mireds: 370
-      min_mireds: 154
-    service: light.turn_on
+  - service: homeassistant.turn_on
+    entity_id: scene.morning
   - data:
       message: Good morning, I turned the lights on in the kitchen
     service: notify.slack
