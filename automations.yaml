@@ -356,11 +356,6 @@
   action:
   - service: homeassistant.turn_off
     entity_id: group.all_lights
-  - service: homeassistant.turn_off
-    entity_id: switch.living_room
-  - service: ifttt.trigger
-    data:
-      event: light_living_room_off
   id: 1f8c980eff8d44fbad564d5ccee0307d
 - alias: Light show
   id: light_show
