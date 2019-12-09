@@ -4,6 +4,6 @@ tracker_andrew:
   entities:
     - device_tracker.andrews_phone_wifi
           #    - device_tracker.andrews_phone_bt
-    - device_tracker.fa7ag1a02205
-#    - device_tracker.andrew_pixel
+#    - device_tracker.fa7ag1a02205
+    - device_tracker.andrews_pixel_2
 
