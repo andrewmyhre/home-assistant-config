@@ -79,19 +79,6 @@ tts:
 
 # Cloud
 cloud:
-  alexa:
-    filter:
-      include_entities:
-        - light.hallway
-        - light.doorway
-        - light.kitchen
-        - media_player.roku
-        - media_player.tv_ha
-        - scene.movie
-        - scene.evening
-        - scene.kitchenlow
-        - scene.kitchenhigh
-        - scene.eveninglow
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -156,6 +143,11 @@ light:
       - light.lounge_light_1
       - light.lounge_light_2
       - light.lounge_light_3
+  - platform: group
+    name: Blinds
+    entities:
+      - cover.window_covering_device_1
+      - cover.window_covering_device_2
 
 
 media_player:
