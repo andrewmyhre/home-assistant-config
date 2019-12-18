@@ -143,6 +143,7 @@ light:
       - light.lounge_light_1
       - light.lounge_light_2
       - light.lounge_light_3
+cover:
   - platform: group
     name: Blinds
     entities:
