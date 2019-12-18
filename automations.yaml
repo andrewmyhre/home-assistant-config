@@ -46,7 +46,8 @@
   action:
   - service: cover.set_cover_position
     entity_id: cover.blinds
-    position: 20
+    data:
+      position: 20
 - alias: Turn on lights when the sun sets and I am home
   trigger:
   - platform: sun
