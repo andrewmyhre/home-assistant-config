@@ -29,6 +29,24 @@
   - service: vacuum.return_to_base
     entity_id: vacuum.roomba
   id: ed717fd547ca40dd98b8c5ccb7fe3544
+- alias: Close the blinds when the sun has set
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:00:00
+  action:
+  - service: cover.close_cover
+    entity_id: cover.blinds
+- alias: Open the blinds a little when I wake up
+  trigger:
+  - platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: goodmorning
+  action:
+  - service: cover.set_cover_position
+    entity_id: cover.blinds
+    position: 20
 - alias: Turn on lights when the sun sets and I am home
   trigger:
   - platform: sun
@@ -180,6 +198,15 @@
     data:
       message: You left home so I turned the lights off
   id: 2155018ca7674665b1cce7b4b2c20b8d
+- alias: Open the blinds when I leave home
+  trigger:
+  - platform: state
+    entity_id: group.tracker_andrew
+    from: home
+    to: not_home
+  action:
+  - service: cover.open_cover
+    entity_id: cover.blinds
 - id: 09eba6d35c8f477c97f2c6659c9078b6
   alias: Turn on the kitchen light in the morning
   trigger:
