@@ -157,10 +157,7 @@ media_player:
     host: 192.168.1.5
     port: 8001
     name: tv_ha
-switch livingroom:
-  - platform: tplink
-    host: 192.168.1.217
-    name: "Living Room"
+
 scene:
   - name: morning
     entities: 
