@@ -27,6 +27,11 @@ config:
 
 wake_on_lan:
 
+switch:
+  - platform: wake_on_lan
+    name: pc
+    mac: 4C:CC:6A:88:10:3E
+
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #        base_url: http://home.andrew-myhre.com:8123
