@@ -24,6 +24,8 @@
     - daily_summary
     - sunrise_time
     - sunset_time
+    - cloud_cover
+    - alerts
 
 - platform: template
   sensors:
@@ -69,3 +71,16 @@
       friendly_name_template: '{{ states.vacuum.roomba.attributes.battery_level }}%'
 
 
+- platform: template
+  sensors:
+    main_lights_brightness:
+      friendly_name: Main lights brightness
+      value_template: >
+        {{ states.light.main_lights.attributes.brightness}}
+
+- platform: template
+  sensors:
+    sun_elevation:
+      friendly_name: Sun elevation
+      value_template: >
+        {{ states.sun.sun.attributes.elevation}}
