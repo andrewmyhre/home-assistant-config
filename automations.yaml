@@ -91,8 +91,8 @@
     event_data:
       action: time_for_bed
   action:
-  - service: input_boolean.toggle
-    service_data:
+  - service: input_boolean.turn_on
+    data:
       entity_id: bedtime
 
 
