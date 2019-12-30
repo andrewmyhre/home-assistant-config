@@ -17,8 +17,9 @@
 
 - alias: Lights up
   trigger:
-  - platform: time
-    minutes: '/10' #every 10 minutes
+  - platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
   - platform: state
     entity_id: group.tracker_andrew
     from: not_home
