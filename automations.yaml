@@ -20,6 +20,9 @@
   - condition: state
     entity_id: group.tracker_andrew
     state: home
+  - condition: sun
+    after: sunset
+    after_offset: "-01:00:00"
   - condition: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
@@ -40,6 +43,8 @@
   - condition: state
     entity_id: group.tracker_andrew
     state: home
+  - condition: sun
+    after: sunset
   - condition: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
