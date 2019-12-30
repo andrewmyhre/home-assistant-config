@@ -19,13 +19,6 @@
   trigger:
   - platform: state
     entity_id: sun.sun
-  - platform: state
-    entity_id: group.tracker_andrew
-    from: not_home
-    to: home
-  - platform: sun
-    event: sunset
-    offset: "-1:00:00"
   condition:
   - condition: state
     entity_id: group.tracker_andrew
