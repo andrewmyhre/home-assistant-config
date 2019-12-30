@@ -65,9 +65,9 @@
   - condition: state
     entity_id: group.tracker_andrew
     state: home
-  # - condition: state
-  #   entity_id: switch.bedtime
-  #   state: on
+  - condition: state
+    entity_id: switch.bedtime
+    state: on
   - condition: numeric_state
     entity_id: light.main_lights
     value_template: "{{state_attr('light.main_lights', 'brightness')}}"
