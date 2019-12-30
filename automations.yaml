@@ -35,7 +35,7 @@
       brightness: > 
         {{ (((10 - state_attr('sun.sun', 'elevation')) / 10) * 200)|int(0) }}
 
-- alias: Lights up (post-sunset)
+- alias: Lights down (post-sunset)
   trigger:
   - platform: time_pattern
     minutes: /1
@@ -56,6 +56,45 @@
     data_template:
       brightness: > 
         {{ 100 + (((15 + state_attr('sun.sun', 'elevation')) / 10) * 100)|int(0) }}
+
+- alias: Lights down (pre-bedtime)
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  - condition: state
+    entity_id: bedtime
+    state: on
+  - condition: numeric_state
+    entity_id: light.main_lights
+    value_template: "{{state_attr('light.main_lights', 'brightness')}}"
+    above: 20
+  action:
+  - service: light.turn_on
+    entity_id: light.main_lights
+    data_template:
+      brightness: >
+        "{{state_attr('light.main_lights', 'brightness') - 5}}"
+      rgb_color:
+      - "{{state_attr('light.main_lights', 'rgb_color')[0] }}"
+      - "{{state_attr('light.main_lights', 'rgb_color')[1]-5 }}"
+      - "{{state_attr('light.main_lights', 'rgb_color')[2]-5 }}"
+
+
+- alias: Recognise when it's bedtime
+  trigger:
+  - platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: time_for_bed
+  action:
+  - service: input_boolean.toggle
+    service_data:
+      entity_id: bedtime
+
 
 - alias: Send roomba home when Andrew comes home
   trigger:
