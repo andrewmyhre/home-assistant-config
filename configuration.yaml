@@ -148,6 +148,11 @@ cover:
       - cover.window_covering_device_1
       - cover.window_covering_device_2
 
+device_sun_light_trigger:
+  light_group: group.main_lights
+  light_profile: relax
+  device_group: group.tracker_andrew
+  disable_turn_off: 0
 
 media_player:
   - platform: roku
@@ -163,6 +168,16 @@ scene:
         state: true
         color_name: "Warm White"
         brightness: 194
+
+      light.lounge:
+        state: true
+        color_name: "Warm White"
+        brightness: 120
+      light.bathroom:
+        state: true
+        color_name: "Warm White"
+        brightness: 120
+
   - name: Movie
     entities: 
       light.hallway:
@@ -175,190 +190,6 @@ scene:
         color_temp: 454
       switch.living_room:
         state: false
-  - name: LowLights
-    entities:
-      switch.living_room:
-        state: true
-      light.kitchen:
-        state: true
-        brightness: 60
-        color_temp: 454
-      light.bedroom:
-        brightness: 35
-        color_temp: 60
-        state: true
-  - name: EveningLow
-    entities:
-      switch.living_room:
-        state: true
-      light.kitchen:
-        state: true
-        brightness: 190
-        color_temp: 454
-      light.bedroom:
-        brightness: 35
-        color_temp: 454
-        state: true
-
-  - name: Evening
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 150
-        color_name: "Warm White"
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 89
-        color_name: "Warm White"
-
-  - name: Evening2
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 140
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 80
-        color_name: "Warm White"
-
-
-  - name: Evening3
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 130
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 70
-        color_name: "Warm White"
-
-  - name: Evening4
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 120
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 60
-        color_name: "Warm White"
-
-  - name: Evening5
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 110
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 50
-        color_name: "Warm White"
-
-  - name: Evening6
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 100
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 40
-        color_name: "Warm White"
-
-  - name: Evening7
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 90
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 30
-        color_name: "Warm White"
-
-  - name: Evening8
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 80
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 20
-        color_name: "Warm White"
-
-  - name: Evening9
-    entities:
-      light.kitchen:
-        transition: 60
-        state: true
-        brightness: 70
-        color_name: "Warm White"
-      light.bedroom:
-        brightness: 35
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 10
-        color_name: "Warm White"
-
-  - name: Evening10
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 10
-        color_name: "Warm White"
-        transition: 60
-      light.bedroom:
-        brightness: 10
-        color_temp: 2500
-        state: true
-      light.lounge:
-        state: true
-        brightness: 10
-        color_name: "Warm White"
 
   - name: AllLightsOff
     entities:
@@ -374,26 +205,6 @@ scene:
         state: false
         color_name: Warm White"
         brightness: 0
-  - name: kitchenlow
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 25
-        color_temp: 370
-    friendly_name: "Kitchen Low"
-    alexa_description: "Kitchen Low"
-    alexa_display_categories: "SCENE"
-    alexa_hidden: false
-  - name: kitchenhigh
-    entities:
-      light.kitchen:
-        state: true
-        brightness: 200
-        color_temp: 454
-    friendly_name: "Kitchen High"
-    alexa_description: "Kitchen High"
-    alexa_display_categories: "SCENE"
-    alexa_hidden: false
 
 ifttt:
   key: bD9EVd6gCvWCIw9JEUoZk7

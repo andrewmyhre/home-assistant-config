@@ -1,4 +1,4 @@
-- alias: Andrew is home
+- alias: Close the blinds when I get home
   trigger:
   - platform: state
     entity_id: group.tracker_andrew
@@ -9,34 +9,25 @@
     entity_id: sun.sun
     state: below_horizon
   action:
-  - service: notify.slack
-    data:
-      message: Andrew is home
   - service: cover.close_cover
     entity_id: cover.blinds
 
-- alias: Lights up
-  trigger:
-  - platform: time_pattern
-    minutes: "/5"
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: light.turn_on
-    entity_id: light.main_lights
-    data:
-      brightness: >
-        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 300  %} #5 minutes
-          255
-        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 600  %} #10 minutes
-          100
-        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 1800  %} #30 minutes
-          25
-        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 3000  %} #50 minutes
-          10
-        {% endif %}
+# - alias: Lights up
+#   trigger:
+#   - platform: numeric_state
+#     entity_id: sun.sun
+#     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+#     below: 5
+#   condition:
+#   - condition: state
+#     entity_id: group.tracker_andrew
+#     state: home
+#   action:
+#   - service: light.turn_on
+#     entity_id: light.main_lights
+#     data_template:
+#       brightness: > 
+#         {{ (((5 - state_attr('sun.sun', 'elevation')) / 5) * 255)|int(0) }}
 
 - alias: Send roomba home when Andrew comes home
   trigger:
@@ -60,6 +51,7 @@
   action:
   - service: cover.close_cover
     entity_id: cover.blinds
+
 - alias: Open the blinds a little when I wake up
   trigger:
   - platform: event
@@ -72,23 +64,23 @@
     data:
       position: 20
 
-- alias: Turn off the lights when I leave home
-  trigger:
-  - platform: state
-    entity_id: group.tracker_andrew
-    from: home
-    to: not_home
-  action:
-  - service: homeassistant.turn_off
-    entity_id: group.all_lights
-  - service: homeassistant.turn_off
-    entity_id: switch.living_room
-  - service: ifttt.trigger
-    data:
-      event: light_living_room_off
-  - service: notify.slack
-    data:
-      message: You left home so I turned the lights off
+# - alias: Turn off the lights when I leave home
+#   trigger:
+#   - platform: state
+#     entity_id: group.tracker_andrew
+#     from: home
+#     to: not_home
+#   action:
+#   - service: homeassistant.turn_off
+#     entity_id: group.all_lights
+#   - service: homeassistant.turn_off
+#     entity_id: switch.living_room
+#   - service: ifttt.trigger
+#     data:
+#       event: light_living_room_off
+#   - service: notify.slack
+#     data:
+#       message: You left home so I turned the lights off
 
 - alias: Open the blinds when I leave home
   trigger:
@@ -137,7 +129,7 @@
   - service: notify.slack
     data:
       message: It's raining so I turned the lights on
-  id: 89d2a9c66dea4507bcc46577a06f84a6
+
 - alias: Dark Morning
   trigger:
   - platform: numeric_state
@@ -158,7 +150,7 @@
   - service: notify.slack
     data:
       message: It's dark so I turned the lights on
-  id: 169872498dae436589551c9a165da5b4
+
 - alias: Begin vacuuming
   trigger:
   - platform: time
@@ -173,79 +165,7 @@
   - service: notify.slack
     data:
       message: I started the Roomba on a cleaning cycle
-  id: 3347c518a2cf4147a9c728c11ad2852f
-- alias: TV On - Received IFTTT Webhook
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: tv_on
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-      source: Home
-  id: eea9f741e0b94369b04e243f50616375
-- alias: Open Youtube - Received IFTTT Webhook
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: tv_open_youtube
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-      source: YouTube
-  id: 894327b1bb764cffb3a2f8849cfb1647
-- alias: Open HBO Now - Received IFTTT Webhook
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: tv_open_hbonow
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-      source: HBO NOW
-  id: d9af42d31d6149de80d3bf104860dfa2
-- alias: Open Netflix - Received IFTTT Webhook
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: tv_open_netflix
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-      source: Netflix
-  id: c521d7eef16946fcbc1ecfcf9d1acd59
-- alias: Open Hulu - Received IFTTT Webhook
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: tv_open_hulu
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-      source: Hulu
-  id: 88d18e69051c41e186f45996a9588c84
-- alias: Open Prime Video - Received IFTTT Webhook
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: tv_open_primevideo
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-      source: Prime Video
-  id: a9a05a2ab9d847fb9f66285e703d769d
+
 - alias: Select theme
   id: hass_theme
   initial_state: 'on'
@@ -271,7 +191,7 @@
   action:
   - service: homeassistant.turn_off
     entity_id: group.all_lights
-  id: 1f8c980eff8d44fbad564d5ccee0307d
+
 - alias: Light show
   id: light_show
   trigger:
