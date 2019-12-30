@@ -20,7 +20,7 @@
   - condition: state
     entity_id: group.tracker_andrew
     state: home
-  - platform: numeric_state
+  - condition: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     below: 10
