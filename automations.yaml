@@ -17,7 +17,7 @@
   - platform: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-    below: 5
+    below: 10
   condition:
   - condition: state
     entity_id: group.tracker_andrew
@@ -27,7 +27,7 @@
     entity_id: light.main_lights
     data_template:
       brightness: > 
-        {{ (((5 - state_attr('sun.sun', 'elevation')) / 5) * 255)|int(0) }}
+        {{ (((10 - state_attr('sun.sun', 'elevation')) / 10) * 255)|int(0) }}
 
 - alias: Send roomba home when Andrew comes home
   trigger:
