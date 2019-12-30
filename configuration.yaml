@@ -120,21 +120,6 @@ device_tracker:
 tplink:
 
 light:
-  - platform: limitlessled
-    bridges:
-      - host: 192.168.1.195
-        groups:
-        - number: 1
-          type: rgbww
-          name: Doorway
-          fade: true
-        - number: 2
-          type: rgbww
-          name: Hallway
-        - number: 3
-          type: rgbww
-          name: Kitchen
-          fade: true
   - platform: group
     entities:
       - light.bedroom_light_1
@@ -150,6 +135,12 @@ light:
       - light.lounge_light_1
       - light.lounge_light_2
       - light.lounge_light_3
+  - platform: group
+    name: Main lights
+    entities:
+      - light.lounge
+      - light.kitchen
+      - light.bedroom
 cover:
   - platform: group
     name: Blinds

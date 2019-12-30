@@ -12,11 +12,39 @@
   - service: notify.slack
     data:
       message: Andrew is home
-  - service: homeassistant.turn_on
-    entity_id: scene.evening
   - service: cover.close_cover
     entity_id: cover.blinds
-  id: a79d7a7d8d3d4494ba806e4bdf4a63e7
+
+- alias: Lights up
+  trigger:
+  - platform: time
+    minutes: '/10' #every 10 minutes
+  - platform: state
+    entity_id: group.tracker_andrew
+    from: not_home
+    to: home
+  - platform: sun
+    event: sunset
+    offset: "-1:00:00"
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: light.turn_on
+    entity_id: light.main_lights
+    data:
+      brightness: >
+        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 300  %} #5 minutes
+          255
+        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 600  %} #10 minutes
+          100
+        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 1800  %} #30 minutes
+          25
+        {% if as_timestamp(state_attr('sun.sun', 'next_setting')) - as_timestamp(now()) < 3000  %} #50 minutes
+          10
+        {% endif %}
+
 - alias: Send roomba home when Andrew comes home
   trigger:
   - platform: state
@@ -30,7 +58,7 @@
   action:
   - service: vacuum.return_to_base
     entity_id: vacuum.roomba
-  id: ed717fd547ca40dd98b8c5ccb7fe3544
+
 - alias: Close the blinds when the sun has set
   trigger:
   - platform: sun
@@ -50,139 +78,7 @@
     entity_id: cover.blinds
     data:
       position: 20
-- alias: Turn on lights when the sun sets and I am home
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: -00:45:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.evening
-  - service: notify.slack
-    data:
-      message: The sun is setting soon and you're home so I turned the lights on
-  id: eb5645437abf48c886421a0fdb48fdc1
-- alias: evening2
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 00:15:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening2
-  id: 69a0c511e1e54f3c9d0c05e03a42bf59
-- alias: evening3
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 00:45:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening3
-  id: 7e777b1fd90a47d9992e39697723e852
-- alias: evening4
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 01:15:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening4
-  id: 9d3952a62f2544caac2f69156ef78ff2
-- alias: evening5
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 01:45:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening5
-  id: 80f82879d29e4c0eba747bf4f446cf7d
-- alias: evening6
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 02:15:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening6
-  id: 03d0091b8a87455fadca91e74a98be80
-- alias: evening7
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 02:45:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening7
-  id: 8b91e33f8ff846e98bcc3213ea2383e8
-- alias: evening8
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 03:15:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening8
-  id: f22f9438a104486da4a4d6ceeaaecb36
-- alias: evening9
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 03:45:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening9
-  id: de3f2e90c9ad47beb98bc79376af0cd0
-- alias: evening10
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: 04:15:00
-  condition:
-  - condition: state
-    entity_id: group.tracker_andrew
-    state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.Evening10
-  id: 0a26026b0dad41958cd91ffa93cd85b8
+
 - alias: Turn off the lights when I leave home
   trigger:
   - platform: state
@@ -200,7 +96,7 @@
   - service: notify.slack
     data:
       message: You left home so I turned the lights off
-  id: 2155018ca7674665b1cce7b4b2c20b8d
+
 - alias: Open the blinds when I leave home
   trigger:
   - platform: state
@@ -210,8 +106,8 @@
   action:
   - service: cover.open_cover
     entity_id: cover.blinds
-- id: 09eba6d35c8f477c97f2c6659c9078b6
-  alias: Turn on the kitchen light in the morning
+
+- alias: Turn on the kitchen light in the morning
   trigger:
   - event: sunrise
     platform: sun
@@ -227,6 +123,7 @@
   - data:
       message: Good morning, I turned the lights on in the kitchen
     service: notify.slack
+
 - alias: Rainy Day
   trigger:
   - platform: state
