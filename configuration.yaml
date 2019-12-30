@@ -148,11 +148,11 @@ cover:
       - cover.window_covering_device_1
       - cover.window_covering_device_2
 
-device_sun_light_trigger:
-  light_group: group.main_lights
-  light_profile: relax
-  device_group: group.tracker_andrew
-  disable_turn_off: 0
+# device_sun_light_trigger:
+#   light_group: group.main_lights
+#   light_profile: relax
+#   device_group: group.tracker_andrew
+#   disable_turn_off: 0
 
 media_player:
   - platform: roku

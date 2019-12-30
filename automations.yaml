@@ -12,22 +12,22 @@
   - service: cover.close_cover
     entity_id: cover.blinds
 
-# - alias: Lights up
-#   trigger:
-#   - platform: numeric_state
-#     entity_id: sun.sun
-#     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-#     below: 5
-#   condition:
-#   - condition: state
-#     entity_id: group.tracker_andrew
-#     state: home
-#   action:
-#   - service: light.turn_on
-#     entity_id: light.main_lights
-#     data_template:
-#       brightness: > 
-#         {{ (((5 - state_attr('sun.sun', 'elevation')) / 5) * 255)|int(0) }}
+- alias: Lights up
+  trigger:
+  - platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    below: 5
+  condition:
+  - condition: state
+    entity_id: group.tracker_andrew
+    state: home
+  action:
+  - service: light.turn_on
+    entity_id: light.main_lights
+    data_template:
+      brightness: > 
+        {{ (((5 - state_attr('sun.sun', 'elevation')) / 5) * 255)|int(0) }}
 
 - alias: Send roomba home when Andrew comes home
   trigger:
@@ -64,23 +64,23 @@
     data:
       position: 20
 
-# - alias: Turn off the lights when I leave home
-#   trigger:
-#   - platform: state
-#     entity_id: group.tracker_andrew
-#     from: home
-#     to: not_home
-#   action:
-#   - service: homeassistant.turn_off
-#     entity_id: group.all_lights
-#   - service: homeassistant.turn_off
-#     entity_id: switch.living_room
-#   - service: ifttt.trigger
-#     data:
-#       event: light_living_room_off
-#   - service: notify.slack
-#     data:
-#       message: You left home so I turned the lights off
+- alias: Turn off the lights when I leave home
+  trigger:
+  - platform: state
+    entity_id: group.tracker_andrew
+    from: home
+    to: not_home
+  action:
+  - service: homeassistant.turn_off
+    entity_id: group.all_lights
+  - service: homeassistant.turn_off
+    entity_id: switch.living_room
+  - service: ifttt.trigger
+    data:
+      event: light_living_room_off
+  - service: notify.slack
+    data:
+      message: You left home so I turned the lights off
 
 - alias: Open the blinds when I leave home
   trigger:
