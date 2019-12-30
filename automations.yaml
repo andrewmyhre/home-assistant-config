@@ -67,7 +67,7 @@
     state: home
   - condition: state
     entity_id: switch.bedtime
-    state: on
+    state: "on"
   - condition: numeric_state
     entity_id: light.main_lights
     value_template: "{{state_attr('light.main_lights', 'brightness')}}"
