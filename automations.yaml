@@ -17,8 +17,8 @@
 
 - alias: Lights up
   trigger:
-  - platform: state
-    entity_id: sun.sun
+  - platform: time_pattern
+    minutes: "/5"
   condition:
   - condition: state
     entity_id: group.tracker_andrew
