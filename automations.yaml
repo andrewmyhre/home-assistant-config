@@ -14,14 +14,16 @@
 
 - alias: Lights up
   trigger:
-  - platform: numeric_state
-    entity_id: sun.sun
-    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-    below: 10
+  - platform: time_pattern
+    minutes: /5
   condition:
   - condition: state
     entity_id: group.tracker_andrew
     state: home
+  - platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    below: 10
   action:
   - service: light.turn_on
     entity_id: light.main_lights
