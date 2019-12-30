@@ -77,6 +77,7 @@
       friendly_name: Main lights brightness
       value_template: >
         {{ states.light.main_lights.attributes.brightness}}
+      unit_of_measurement: ms
 
 - platform: template
   sensors:
@@ -84,3 +85,4 @@
       friendly_name: Sun elevation
       value_template: >
         {{ states.sun.sun.attributes.elevation}}
+      unit_of_measurement: s
