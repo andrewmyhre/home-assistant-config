@@ -76,12 +76,12 @@
   - service: light.turn_on
     entity_id: light.main_lights
     data_template:
-      brightness: >
-        "{{state_attr('light.main_lights', 'brightness') - 5}}"
+      brightness:
+        "{{(state_attr('light.main_lights', 'brightness') - 5)|int(0)}}"
       rgb_color:
-      - "{{state_attr('light.main_lights', 'rgb_color')[0] }}"
-      - "{{state_attr('light.main_lights', 'rgb_color')[1]-5 }}"
-      - "{{state_attr('light.main_lights', 'rgb_color')[2]-5 }}"
+      - "{{(state_attr('light.main_lights', 'rgb_color')[0])|int(0) }}"
+      - "{{(state_attr('light.main_lights', 'rgb_color')[1]-5)|int(0) }}"
+      - "{{(state_attr('light.main_lights', 'rgb_color')[2]-5)|int(0) }}"
 
 
 - alias: Recognise when it's bedtime
