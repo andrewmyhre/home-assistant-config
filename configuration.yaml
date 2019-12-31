@@ -156,6 +156,12 @@ light:
       - light.lounge
       - light.kitchen
       - light.bedroom
+  - platform: group
+    name: All lights
+    entities:
+      - light.main_lights
+      - light.bathroom
+      - light.bedroom_lamp
 cover:
   - platform: group
     name: Blinds
