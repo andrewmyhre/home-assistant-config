@@ -302,66 +302,64 @@
       entity_id: group.tracker_andrew
       state: home
   action:
-    script:
-      raise_lights:
-        sequence:
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 10
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 20
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 30
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 40
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 50
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 60
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 70
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 80
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 90
-            color_name: "Warm White"
-        - delay: '00:00:1'
-        - service: light.turn_on
-          data_template:
-            entity_id: light.main_lights
-            brightness: 100
-            color_name: "Warm White"
-        - delay: '00:00:1'
+    sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 10
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 20
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 30
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 40
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 50
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 60
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 70
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 80
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 90
+        color_name: "Warm White"
+    - delay: '00:00:1'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.main_lights
+        brightness: 100
+        color_name: "Warm White"
+    - delay: '00:00:1'
