@@ -125,10 +125,6 @@
     event_data:
       action: goodnight
   action:
-  - service: cover.set_cover_position
-    entity_id: cover.blinds
-    data:
-      position: 20
   - service: switch.turn_off
     data:
       entity_id: switch.bedtime
