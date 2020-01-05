@@ -33,7 +33,7 @@
     entity_id: light.main_lights
     data_template:
       brightness: > 
-        {{ (((10 - state_attr('sun.sun', 'elevation')) / 10) * 200)|int(0) }}
+        {{ [(((10 - state_attr('sun.sun', 'elevation')) / 10) * 200)|int(0),state_attr('light.main_lights','brightness')]|max}}
 
 - alias: Lights down (post-sunset)
   trigger:
