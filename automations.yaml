@@ -152,7 +152,7 @@
     data:
       brightness: 100
   - service: light.turn_on
-    entity_id: light.bathroom
+    entity_id: light.vanity
     data:
       brightness: 70
 
