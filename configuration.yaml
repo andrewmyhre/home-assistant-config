@@ -162,6 +162,13 @@ light:
       - light.main_lights
       - light.bathroom
       - light.bedroom_lamp
+  - platform: group
+    name: Vanity
+    entities:
+      - light.bathroom_bulb_1
+      - light.bathroom_bulb_2
+      - light.bathroom_bulb_3
+      - light.bathroom_bulb_4
 cover:
   - platform: group
     name: Blinds
