@@ -1,0 +1,8 @@
+{
+  "domain": "moodo.co",
+  "name": "Moodo",
+  "documentation": "https://www.moodo.co",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["pymoodo==0.0.2"]
+}
