@@ -5,7 +5,7 @@ homeassistant:
   latitude: 40.7800486
   longitude: -73.9523596
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: -36
+  elevation: 65
   # metric for Metric, imperial for Imperial
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
