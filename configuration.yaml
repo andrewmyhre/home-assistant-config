@@ -107,14 +107,15 @@ input_boolean:
     name: Bedtime
 
 device_tracker:
-  - platform: quantum_gateway
+  - platform: netgear
     host: 192.168.1.1
-    password: door316wax
+    username: admin
+    password: admin
     new_device_defaults:
       track_new_devices: true
       hide_if_away: false
     interval_seconds: 10
-    consider_home: 300
+    consider_home: 180
   - platform: bluetooth_le_tracker
     interval_seconds: 10
     consider_home: 300
