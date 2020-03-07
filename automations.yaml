@@ -1,7 +1,7 @@
 - alias: Close the blinds when I get home
   trigger:
   - platform: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     from: not_home
     to: home
   condition:
@@ -18,7 +18,7 @@
     minutes: /1
   condition:
   - condition: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     state: home
   - condition: sun
     after: sunset
@@ -41,7 +41,7 @@
     minutes: /1
   condition:
   - condition: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     state: home
   - condition: sun
     after: sunset
@@ -63,7 +63,7 @@
     minutes: /5
   condition:
   - condition: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     state: home
   - condition: state
     entity_id: switch.bedtime
@@ -98,7 +98,7 @@
 - alias: Send roomba home when Andrew comes home
   trigger:
   - platform: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     from: not_home
     to: home
   condition:
@@ -124,6 +124,10 @@
     event_type: ifttt_webhook_received
     event_data:
       action: goodnight
+  condition:
+  - condition: state
+    entity_id: person.andrew
+    state: home
   action:
   - service: switch.turn_off
     data:
@@ -138,6 +142,15 @@
     event_type: ifttt_webhook_received
     event_data:
       action: goodmorning
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: person.andrew
+      state: home
+    - condition: time
+      after: '6:00'
+      before: '23:00'
   action:
   - service: cover.set_cover_position
     entity_id: cover.blinds
@@ -159,7 +172,7 @@
 - alias: Turn off the lights when I leave home
   trigger:
   - platform: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     from: home
     to: not_home
   action:
@@ -177,7 +190,7 @@
 - alias: Open the blinds when I leave home
   trigger:
   - platform: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     from: home
     to: not_home
   action:
@@ -192,7 +205,7 @@
   - condition: or
     conditions:
     - condition: state
-      entity_id: group.tracker_andrew
+      entity_id: person.andrew
       state: home
   action:
   - service: homeassistant.turn_on
@@ -210,7 +223,7 @@
   - condition: or
     conditions:
     - condition: state
-      entity_id: group.tracker_andrew
+      entity_id: person.andrew
       state: home
   - condition: time
     after: '14:00'
@@ -231,7 +244,7 @@
   - condition: or
     conditions:
     - condition: state
-      entity_id: group.tracker_andrew
+      entity_id: person.andrew
       state: home
   - condition: state
     entity_id: sun.sun
@@ -249,7 +262,7 @@
     at: '11:00:00'
   condition:
   - condition: state
-    entity_id: group.tracker_andrew
+    entity_id: person.andrew
     state: not_home
   action:
   - service: vacuum.turn_on
@@ -268,13 +281,12 @@
   - service: frontend.set_theme
     data_template:
       name: '{{ states.input_select.hass_theme.state }}'
+
 - alias: Turn off the lights when I go to sleep
   condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: group.tracker_andrew
-      state: home
+  - condition: state
+    entity_id: person.andrew
+    state: home
   trigger:
   - platform: event
     event_type: ifttt_webhook_received
@@ -288,14 +300,12 @@
   id: arrive_home
   trigger:
   - platform: state
-    entity_id: group.tracker_andrew
+    entity_id: preson.andrew
     from: not_home
     to: home
   condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: group.tracker_andrew
-      state: home
+  - condition: state
+    entity_id: person.andrew
+    state: home
   action:
   - service: script.raise_lights
