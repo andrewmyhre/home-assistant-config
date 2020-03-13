@@ -123,7 +123,8 @@ device_tracker:
     interval_seconds: 10
     consider_home: 300
   - platform: nmap_tracker
-    hosts: 192.168.1.0/24
+    hosts: 192.168.1.1-255
+    scan_options: " --privileged -sn "
 
 # notify:
 #   - name: slack

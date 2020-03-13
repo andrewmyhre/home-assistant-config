@@ -300,7 +300,7 @@
   id: arrive_home
   trigger:
   - platform: state
-    entity_id: preson.andrew
+    entity_id: person.andrew
     from: not_home
     to: home
   condition:
