@@ -152,6 +152,9 @@
       after: '6:00'
       before: '23:00'
   action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.bedtime
   - service: cover.set_cover_position
     entity_id: cover.blinds
     data:
