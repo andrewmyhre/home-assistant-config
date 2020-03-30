@@ -98,7 +98,7 @@ tts:
 # Cloud
 cloud:
 
-group: !include groups.yaml
+#group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
@@ -106,27 +106,27 @@ input_boolean:
   bedtime:
     name: Bedtime
 
-device_tracker:
-  - platform: netgear
-    host: 192.168.1.1
-    username: admin
-    password: admin
-    new_device_defaults:
-      track_new_devices: true
-      hide_if_away: false
-    interval_seconds: 10
-    consider_home: 180
-  - platform: bluetooth_le_tracker
-    interval_seconds: 10
-    consider_home: 300
-  - platform: bluetooth_tracker
-    interval_seconds: 10
-    consider_home: 300
-  - platform: nmap_tracker
-    hosts: 192.168.1.1-255
-    scan_options: " --privileged -sn "
-    exclude:
-      - 192.168.1.10
+# device_tracker:
+#   - platform: netgear
+#     host: 192.168.1.1
+#     username: admin
+#     password: admin
+#     new_device_defaults:
+#       track_new_devices: true
+#       hide_if_away: false
+#     interval_seconds: 10
+#     consider_home: 180
+#   - platform: bluetooth_le_tracker
+#     interval_seconds: 10
+#     consider_home: 300
+#   - platform: bluetooth_tracker
+#     interval_seconds: 10
+#     consider_home: 300
+#   - platform: nmap_tracker
+#     hosts: 192.168.1.1-255
+#     scan_options: " --privileged -sn "
+#     exclude:
+#       - 192.168.1.10
 
 # notify:
 #   - name: slack
