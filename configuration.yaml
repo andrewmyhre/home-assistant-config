@@ -47,14 +47,9 @@ switch:
 # http:
 #        base_url: http://home.andrew-myhre.com:8123
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+  include_used_components: true
 
 # Discover some devices automatically
 discovery:
@@ -98,7 +93,6 @@ tts:
 # Cloud
 cloud:
 
-#group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
@@ -113,85 +107,7 @@ group:
     - cover.left_blind
     - cover.right_blind
 
-# device_tracker:
-#   - platform: netgear
-#     host: 192.168.1.1
-#     username: admin
-#     password: admin
-#     new_device_defaults:
-#       track_new_devices: true
-#       hide_if_away: false
-#     interval_seconds: 10
-#     consider_home: 180
-#   - platform: bluetooth_le_tracker
-#     interval_seconds: 10
-#     consider_home: 300
-#   - platform: bluetooth_tracker
-#     interval_seconds: 10
-#     consider_home: 300
-#   - platform: nmap_tracker
-#     hosts: 192.168.1.1-255
-#     scan_options: " --privileged -sn "
-#     exclude:
-#       - 192.168.1.10
-
-# notify:
-#   - name: slack
-#     platform: slack
-#     api_key: 
-#     default_channel: '#andrew-is-awesome'
-#     username: "@homeassistant"
-#     icon: ":house:"
-
 tplink:
-
-# light:
-#   - platform: group
-#     entities:
-#       - light.bedroom_light_1
-#     name: Bedroom
-#   - platform: group
-#     name: Kitchen
-#     entities:
-#       - light.kitchen_light_1
-#       - light.kitchen_light_2
-#   - platform: group
-#     name: Lounge
-#     entities:
-#       - light.lounge_light_1
-#       - light.lounge_light_2
-#       - light.lounge_light_3
-#   - platform: group
-#     name: Main lights
-#     entities:
-#       - light.lounge
-#       - light.kitchen
-#       - light.bedroom
-#   - platform: group
-#     name: All lights
-#     entities:
-#       - light.main_lights
-#       - light.bathroom
-#       - light.bedroom_lamp
-#   - platform: group
-#     name: Vanity
-#     entities:
-#       - light.bathroom_bulb_1
-#       - light.bathroom_bulb_2
-#       - light.bathroom_bulb_3
-#       - light.bathroom_bulb_4
-# cover:
-#   - platform: group
-#     name: Blinds
-#     entities:
-#       - cover.left_blind
-#       - cover.right_blind
-
-# device_sun_light_trigger:
-#   light_group: group.main_lights
-#   light_profile: relax
-#   device_group: group.tracker_andrew
-#   disable_turn_off: 0
 
 media_player:
   - platform: roku
