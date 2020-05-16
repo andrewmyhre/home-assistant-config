@@ -316,10 +316,11 @@
     state: home
   action:
   - service: script.raise_lights
+
 - alias: Smoke
   id: smoke
   trigger:
-  - platform: ifttt
+  - platform: event
     event_type: ifttt_webhook_received
     event_data:
       action: smoke
