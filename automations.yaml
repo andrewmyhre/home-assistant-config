@@ -324,8 +324,8 @@
     event_type: ifttt_webhook_received
     event_data:
       action: smoke
-    action:
-    - service: cover.set_cover_position
-      event_data:
-        entity_id: cover.right_blind
-        position: 60
+  action:
+  - service: cover.set_cover_position
+    event_data:
+      entity_id: cover.right_blind
+      position: 60
