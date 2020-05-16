@@ -177,8 +177,8 @@ cover:
   - platform: group
     name: Blinds
     entities:
-      - cover.window_covering_device_1
-      - cover.window_covering_device_2
+      - cover.left_blind
+      - cover.right_blind
 
 # device_sun_light_trigger:
 #   light_group: group.main_lights

@@ -316,3 +316,15 @@
     state: home
   action:
   - service: script.raise_lights
+- alias: Smoke
+  id: smoke
+  trigger:
+  - platform: ifttt
+    event_type: ifttt_webhook_received
+    event_data:
+      action: smoke
+    action:
+    - service: cover.set_cover_position
+      event_data:
+        entity_id: cover.window_covering_device_1
+        position: 60
