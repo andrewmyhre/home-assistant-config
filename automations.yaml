@@ -326,6 +326,6 @@
       action: smoke
   action:
   - service: cover.set_cover_position
-    event_data:
-      entity_id: cover.right_blind
+    entity_id: cover.right_blind
+    data:
       position: 60
