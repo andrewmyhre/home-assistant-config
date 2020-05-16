@@ -106,6 +106,13 @@ input_boolean:
   bedtime:
     name: Bedtime
 
+group:
+  blinds:
+    name: Blinds
+    entities:
+    - cover.left_blind
+    - cover.right_blind
+
 # device_tracker:
 #   - platform: netgear
 #     host: 192.168.1.1
@@ -138,47 +145,47 @@ input_boolean:
 
 tplink:
 
-light:
-  - platform: group
-    entities:
-      - light.bedroom_light_1
-    name: Bedroom
-  - platform: group
-    name: Kitchen
-    entities:
-      - light.kitchen_light_1
-      - light.kitchen_light_2
-  - platform: group
-    name: Lounge
-    entities:
-      - light.lounge_light_1
-      - light.lounge_light_2
-      - light.lounge_light_3
-  - platform: group
-    name: Main lights
-    entities:
-      - light.lounge
-      - light.kitchen
-      - light.bedroom
-  - platform: group
-    name: All lights
-    entities:
-      - light.main_lights
-      - light.bathroom
-      - light.bedroom_lamp
-  - platform: group
-    name: Vanity
-    entities:
-      - light.bathroom_bulb_1
-      - light.bathroom_bulb_2
-      - light.bathroom_bulb_3
-      - light.bathroom_bulb_4
-cover:
-  - platform: group
-    name: Blinds
-    entities:
-      - cover.left_blind
-      - cover.right_blind
+# light:
+#   - platform: group
+#     entities:
+#       - light.bedroom_light_1
+#     name: Bedroom
+#   - platform: group
+#     name: Kitchen
+#     entities:
+#       - light.kitchen_light_1
+#       - light.kitchen_light_2
+#   - platform: group
+#     name: Lounge
+#     entities:
+#       - light.lounge_light_1
+#       - light.lounge_light_2
+#       - light.lounge_light_3
+#   - platform: group
+#     name: Main lights
+#     entities:
+#       - light.lounge
+#       - light.kitchen
+#       - light.bedroom
+#   - platform: group
+#     name: All lights
+#     entities:
+#       - light.main_lights
+#       - light.bathroom
+#       - light.bedroom_lamp
+#   - platform: group
+#     name: Vanity
+#     entities:
+#       - light.bathroom_bulb_1
+#       - light.bathroom_bulb_2
+#       - light.bathroom_bulb_3
+#       - light.bathroom_bulb_4
+# cover:
+#   - platform: group
+#     name: Blinds
+#     entities:
+#       - cover.left_blind
+#       - cover.right_blind
 
 # device_sun_light_trigger:
 #   light_group: group.main_lights
