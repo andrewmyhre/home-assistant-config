@@ -131,6 +131,12 @@ light:
   - light.bathroom_bulb_3
   - light.bathroom_bulb_4
 
+cover:
+- platform: group
+  entities:
+  - cover.left_blind
+  - cover.right_blind
+
 automation: !include automations.yaml
 script: !include scripts.yaml
 
