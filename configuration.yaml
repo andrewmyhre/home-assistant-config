@@ -96,7 +96,6 @@ cloud:
 group:
   tracker_andrew:
     name: Andrew
-    view: yes
     entities:
       - device_tracker.andrews_phone_wifi
       - device_tracker.andrews_pixel_4
@@ -124,7 +123,7 @@ light:
   - light.bathroom_light_2
   - light.bathroom_light_3
   - light.bathroom_light_4
-  
+
 automation: !include automations.yaml
 script: !include scripts.yaml
 
