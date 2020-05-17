@@ -93,34 +93,44 @@ tts:
 # Cloud
 cloud:
 
+group:
+  tracker_andrew:
+    name: Andrew
+    view: yes
+    entities:
+      - device_tracker.andrews_phone_wifi
+      - device_tracker.andrews_pixel_4
+
+light:
+- platform: group
+  name: Kitchen
+  entities:
+  - light.kitchen_light_1
+  - light.kitchen_light_2
+- platform: group
+  name: Bedroom
+  entities:
+  - light.bedroom_light_1
+- platform: group
+  name: Lounge
+  entities:
+  - light.lounge_light_1
+  - light.lounge_light_2
+  - light.lounge_light_3
+- platform: group
+  name: Bathroom
+  entities:
+  - light.bathroom_light_1
+  - light.bathroom_light_2
+  - light.bathroom_light_3
+  - light.bathroom_light_4
+  
 automation: !include automations.yaml
 script: !include scripts.yaml
 
 input_boolean:
   bedtime:
     name: Bedtime
-
-group:
-  blinds:
-    name: Blinds
-    entities:
-    - cover.left_blind
-    - cover.right_blind
-  bedroom:
-    name: Bedroom
-    entities:
-    - light.bedroom_light_1
-  lounge:
-    name: Lounge
-    entities:
-    - light.lounge_light_1
-    - light.lounge_light_2
-    - light.lounge_light_3
-  kitchen:
-    name: Kitchen
-    entities:
-    - light.kitchen_light_1
-    - light.kitchen_light_2
 
 tplink:
 

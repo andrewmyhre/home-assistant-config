@@ -1,6 +1,31 @@
-tracker_andrew:
-  name: Andrew
-  view: yes
+group:
+  tracker_andrew:
+    name: Andrew
+    view: yes
+    entities:
+      - device_tracker.andrews_phone_wifi
+      - device_tracker.andrews_pixel_4
+
+light:
+- platform: group
+  name: Kitchen
   entities:
-    - device_tracker.andrews_phone_wifi
-    - device_tracker.andrews_pixel_4
+  - light.kitchen_light_1
+  - light.kitchen_light_2
+- platform: group
+  name: Bedroom
+  entities:
+  - light.bedroom_light_1
+- platform: group
+  name: Lounge
+  entities:
+  - light.lounge_light_1
+  - light.lounge_light_2
+  - light.lounge_light_3
+- platform: group
+  name: Bathroom
+  entities:
+  - light.bathroom_light_1
+  - light.bathroom_light_2
+  - light.bathroom_light_3
+  - light.bathroom_light_4
