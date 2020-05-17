@@ -119,17 +119,17 @@ light:
 - platform: group
   name: Bathroom
   entities:
-  - light.bathroom_light_1
-  - light.bathroom_light_2
-  - light.bathroom_light_3
-  - light.bathroom_light_4
+  - light.bathroom_bulb_1
+  - light.bathroom_bulb_2
+  - light.bathroom_bulb_3
+  - light.bathroom_bulb_4
 - platform: group
   name: Vanity
   entities:
-  - light.bathroom_light_1
-  - light.bathroom_light_2
-  - light.bathroom_light_3
-  - light.bathroom_light_4
+  - light.bathroom_bulb_1
+  - light.bathroom_bulb_2
+  - light.bathroom_bulb_3
+  - light.bathroom_bulb_4
 
 automation: !include automations.yaml
 script: !include scripts.yaml
