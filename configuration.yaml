@@ -106,6 +106,21 @@ group:
     entities:
     - cover.left_blind
     - cover.right_blind
+  bedroom:
+    name: Bedroom
+    entities:
+    - light.bedroom_light_1
+  lounge:
+    name: Lounge
+    entities:
+    - light.lounge_light_1
+    - light.lounge_light_2
+    - light.lounge_light_3
+  kitchen:
+    name: Kitchen
+    entities:
+    - light.kitchen_light_1
+    - light.kitchen_light_2
 
 tplink:
 
