@@ -97,6 +97,8 @@ remote:
   - platform: broadlink
     host: 192.168.1.215
     mac: 24:df:a7:2d:46:ea
+    type: rm_mini3_newblackbean
+    
 
 group:
   tracker_andrew:
