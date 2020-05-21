@@ -93,6 +93,11 @@ tts:
 # Cloud
 cloud:
 
+remote:
+  - platform: broadlink
+    host: 192.168.1.215
+    mac: 24:df:a7:2d:46:ea
+
 group:
   tracker_andrew:
     name: Andrew
