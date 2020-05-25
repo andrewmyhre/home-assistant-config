@@ -391,6 +391,6 @@
     - service: light.turn_on
       entity_id: light.lounge_lamp
       data:
-        brightness: {{ [state_attr('light.lounge_lamp','brightness'),20]|min}}
+        brightness: "{{ [state_attr('light.lounge_lamp','brightness'),20]|min}}"
     - service: light.turn_off
       entity_id: light.cans
