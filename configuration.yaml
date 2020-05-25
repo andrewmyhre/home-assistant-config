@@ -138,13 +138,13 @@ light:
   - light.bathroom_bulb_2
   - light.bathroom_bulb_3
   - light.bathroom_bulb_4
-- platform: groups
+- platform: group
   name: Main lights
   entities:
   - group.kitchen
   - group.lounge
   - group.bedroom
-- platform: groups
+- platform: group
   name: All lights
   entities:
   - group.bathrooms
