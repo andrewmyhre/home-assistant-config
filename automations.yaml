@@ -200,14 +200,17 @@
     entity_id: light.kitchen
     data:
       brightness: 180
+      color_temp: 400
   - service: light.turn_on
     entity_id: light.lounge
     data:
-      brightness: 120
+      brightness: 180
+      color_temp: 400
   - service: light.turn_on
     entity_id: light.vanity
     data:
-      brightness: 70
+      brightness: 100
+      color_temp: 400
 
 - alias: Turn off the lights when I leave home
   trigger:
