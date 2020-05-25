@@ -141,16 +141,28 @@ light:
 - platform: group
   name: Main lights
   entities:
-  - group.kitchen
-  - group.lounge
-  - group.bedroom
+  - light.kitchen_light_1
+  - light.kitchen_light_2
+  - light.lounge_light_1
+  - light.lounge_light_2
+  - light.lounge_light_3
+  - light.lounge_lamp
+  - light.bedroom_light_1
 - platform: group
   name: All lights
   entities:
-  - group.bathrooms
-  - group.kitchen
-  - group.lounge
-  - group.bedroom
+  - light.bathroom_bulb_1
+  - light.bathroom_bulb_2
+  - light.bathroom_bulb_3
+  - light.bathroom_bulb_4
+  - light.kitchen_light_1
+  - light.kitchen_light_2
+  - light.lounge_light_1
+  - light.lounge_light_2
+  - light.lounge_light_3
+  - light.lounge_lamp
+  - light.bedroom_light_1
+  - light.bedroom_lamp
 
 cover:
 - platform: group
