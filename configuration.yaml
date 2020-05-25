@@ -231,11 +231,6 @@ scene:
 ifttt:
   key: bD9EVd6gCvWCIw9JEUoZk7
 
-tuya:
-  username: "andrew.myhre@gmail.com"
-  password: "Z2@#CNNg^eHH9dz6TGQ"
-  country_code: "1"
-
 vacuum:
   - platform: roomba
     host: 192.168.1.9
