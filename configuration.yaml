@@ -118,7 +118,7 @@ light:
   entities:
   - light.bedroom_light_1
 - platform: group
-  name: Cans
+  name: Spot
   entities:
   - light.lounge_can_1
   - light.lounge_can_2
@@ -158,7 +158,7 @@ light:
   - light.lounge
   - light.bedroom
   - light.bedroom_lamp
-  - light.cans
+  - light.spot
 
 cover:
 - platform: group
