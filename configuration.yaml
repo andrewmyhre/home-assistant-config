@@ -233,7 +233,7 @@ ifttt:
 
 roomba:
   - host: 192.168.1.9
-    blid: 3175000031817670
+    blid: "3175000031817670"
     password: ":1:1575845387:taEElBRsoG0VTOHW"
 
 weather:
