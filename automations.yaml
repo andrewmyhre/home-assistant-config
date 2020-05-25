@@ -83,7 +83,6 @@
       - "{{(state_attr('light.main_lights', 'rgb_color')[1]-5)|int(0) }}"
       - "{{(state_attr('light.main_lights', 'rgb_color')[2]-5)|int(0) }}"
 
-
 - alias: Recognise when it's bedtime
   trigger:
   - platform: event
@@ -94,6 +93,36 @@
   - service: switch.turn_on
     data:
       entity_id: switch.bedtime
+
+- alias: Lights up (pre-sunset)
+  trigger:
+  - platform: time_pattern
+    minutes: /1
+  condition:
+  - condition: state
+    entity_id: switch.bedtime
+    state: "on"
+  - condition: state
+    entity_id: person.andrew
+    state: home
+  - condition: sun
+    after: sunset
+    after_offset: "-01:00:00"
+  - condition: numeric_state
+    entity_id: sun.sun
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    below: 30
+    above: 10
+  action:
+  - service: light.turn_on
+    entity_id: light.main_lights
+    data_template:
+      brightness: > 
+        {{ [(((state_attr('sun.sun', 'elevation')-10) / 20) * 120)|int(0),state_attr('light.main_lights','brightness')]|max}}
+      rgb_color:
+      - "{{state_attr('light.main_lights', 'rgb_color')[0]*(((state_attr('sun.sun', 'elevation')-10) / 20) * 230)|int(0) }}"
+      - "{{state_attr('light.main_lights', 'rgb_color')[1]*(((state_attr('sun.sun', 'elevation')-10) / 20) * 210)|int(0) }}"
+      - "{{state_attr('light.main_lights', 'rgb_color')[2]*(((state_attr('sun.sun', 'elevation')-10) / 20) * 210)|int(0) }}"
 
 - alias: Send roomba home when Andrew comes home
   trigger:
@@ -139,6 +168,11 @@
     data:
       entity_id: light.bathroom_bulb_4
       brightness: 30
+  - service: light.turn_on
+    data:
+      entity_id: light.lounge_lamp
+      brightness: 30
+
 
 - alias: Andrew wakes up
   trigger:
@@ -166,11 +200,11 @@
   - service: light.turn_on
     entity_id: light.kitchen
     data:
-      brightness: 100
+      brightness: 180
   - service: light.turn_on
-    entity_id: light.kitchen
+    entity_id: light.lounge
     data:
-      brightness: 100
+      brightness: 120
   - service: light.turn_on
     entity_id: light.vanity
     data:
@@ -204,7 +238,7 @@
   - service: cover.open_cover
     entity_id: cover.blinds
 
-- alias: Turn on the kitchen light in the morning
+- alias: Raise the lights in the morning
   trigger:
   - event: sunrise
     platform: sun
@@ -330,6 +364,33 @@
       action: smoke
   action:
   - service: cover.set_cover_position
-    entity_id: cover.right_blind
+    entity_id: cover.left_blind
     data:
-      position: 60
+      position: 70
+
+- alias: Movie time
+  id: movie_time
+  trigger:
+  - platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: movie_time
+    action:
+    - service: light.turn_on
+      entity_id: light.kitchen
+      data:
+        brightness: 60
+    - service: light.turn_on
+      entity_id: light.bedroom
+      data:
+        brightness: 50
+    - service: light.turn_on
+      entity_id: light.lounge
+      data:
+        brightness: 30
+    - service: light.turn_on
+      entity_id: light.lounge_lamp
+      data:
+        brightness: {{ [state_attr('light.lounge_lamp','brightness'),20]|min}}
+    - service: light.turn_off
+      entity_id: light.cans

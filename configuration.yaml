@@ -118,6 +118,12 @@ light:
   entities:
   - light.bedroom_light_1
 - platform: group
+  name: Cans
+  entities:
+  - light.lounge_can_1
+  - light.lounge_can_2
+  - light.lounge_can_3
+- platform: group
   name: Lounge
   entities:
   - light.lounge_light_1
@@ -141,28 +147,18 @@ light:
 - platform: group
   name: Main lights
   entities:
-  - light.kitchen_light_1
-  - light.kitchen_light_2
-  - light.lounge_light_1
-  - light.lounge_light_2
-  - light.lounge_light_3
-  - light.lounge_lamp
-  - light.bedroom_light_1
+  - light.kitchen
+  - light.lounge
+  - light.bedroom
 - platform: group
   name: All lights
   entities:
-  - light.bathroom_bulb_1
-  - light.bathroom_bulb_2
-  - light.bathroom_bulb_3
-  - light.bathroom_bulb_4
-  - light.kitchen_light_1
-  - light.kitchen_light_2
-  - light.lounge_light_1
-  - light.lounge_light_2
-  - light.lounge_light_3
-  - light.lounge_lamp
-  - light.bedroom_light_1
+  - light.bathroom
+  - light.kitchen
+  - light.lounge
+  - light.bedroom
   - light.bedroom_lamp
+  - light.cans
 
 cover:
 - platform: group
