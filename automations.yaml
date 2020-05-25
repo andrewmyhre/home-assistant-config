@@ -94,7 +94,7 @@
     data:
       entity_id: switch.bedtime
 
-- alias: Lights up (pre-sunset)
+- alias: Lights up (pre-sunrise)
   trigger:
   - platform: time_pattern
     minutes: /1
@@ -106,8 +106,7 @@
     entity_id: person.andrew
     state: home
   - condition: sun
-    after: sunset
-    after_offset: "-01:00:00"
+    after: sunrise
   - condition: numeric_state
     entity_id: sun.sun
     value_template: "{{ state_attr('sun.sun', 'elevation') }}"
