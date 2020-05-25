@@ -123,6 +123,7 @@ light:
   - light.lounge_light_1
   - light.lounge_light_2
   - light.lounge_light_3
+  - light.lounge_lamp
 - platform: group
   name: Bathroom
   entities:
@@ -137,6 +138,19 @@ light:
   - light.bathroom_bulb_2
   - light.bathroom_bulb_3
   - light.bathroom_bulb_4
+- platform: groups
+  name: Main lights
+  entities:
+  - group.kitchen
+  - group.lounge
+  - group.bedroom
+- platform: groups
+  name: All lights
+  entities:
+  - group.bathrooms
+  - group.kitchen
+  - group.lounge
+  - group.bedroom
 
 cover:
 - platform: group
