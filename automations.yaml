@@ -375,22 +375,22 @@
     event_type: ifttt_webhook_received
     event_data:
       action: movie_time
-    action:
-    - service: light.turn_on
-      entity_id: light.kitchen
-      data:
-        brightness: 60
-    - service: light.turn_on
-      entity_id: light.bedroom
-      data:
-        brightness: 50
-    - service: light.turn_on
-      entity_id: light.lounge
-      data:
-        brightness: 30
-    - service: light.turn_on
-      entity_id: light.lounge_lamp
-      data:
-        brightness: "{{ [state_attr('light.lounge_lamp','brightness'),20]|min}}"
-    - service: light.turn_off
-      entity_id: light.cans
+  action:
+  - service: light.turn_on
+    entity_id: light.kitchen
+    data:
+      brightness: 60
+  - service: light.turn_on
+    entity_id: light.bedroom
+    data:
+      brightness: 50
+  - service: light.turn_on
+    entity_id: light.lounge
+    data:
+      brightness: 30
+  - service: light.turn_on
+    entity_id: light.lounge_lamp
+    data:
+      brightness: "{{ [state_attr('light.lounge_lamp','brightness'),20]|min}}"
+  - service: light.turn_off
+    entity_id: light.cans
