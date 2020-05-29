@@ -34,6 +34,10 @@
     data_template:
       brightness: > 
         {{ [(((10 - state_attr('sun.sun', 'elevation')) / 10) * 200)|int(0),state_attr('light.main_lights','brightness')]|max}}
+      rgb_color:
+      - 255
+      - 255
+      - 255
 
 - alias: Lights down (post-sunset)
   trigger:
