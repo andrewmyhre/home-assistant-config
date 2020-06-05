@@ -97,7 +97,7 @@ remote:
   - platform: broadlink
     host: 192.168.1.215
     mac: 24:df:a7:2d:46:ea
-    type: rm_mini3_newblackbean
+    #type: rm_mini3_newblackbean
     
 
 group:
@@ -175,13 +175,6 @@ input_boolean:
     name: Bedtime
 
 tplink:
-
-media_player:
-  - platform: roku
-  - platform: samsungtv
-    host: 192.168.1.5
-    port: 8001
-    name: tv_ha
 
 scene:
   - name: morning
