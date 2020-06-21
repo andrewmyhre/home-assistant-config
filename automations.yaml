@@ -166,15 +166,32 @@
       entity_id: switch.bedtime
   - service: light.turn_off
     data:
-      entity_id: light.all_lights
+      entity_id: light.bedroom
+  - service: light.turn_off
+    data:
+      entity_id: light.lounge
+  - service: light.turn_off
+    data:
+      entity_id: light.kitchen
+  - service: light.turn_off
+    data:
+      entity_id: light.spot
   - service: light.turn_on
     data:
-      entity_id: light.bathroom_bulb_4
-      brightness: 30
+      entity_id: light.bathroom
+      brightness: 1
+      rgb_color:
+      - 255
+      - 255
+      - 0
   - service: light.turn_on
     data:
       entity_id: light.lounge_lamp
-      brightness: 30
+      brightness: 1
+      rgb_color:
+      - 255
+      - 80
+      - 0
 
 
 - alias: Andrew wakes up
