@@ -148,7 +148,11 @@
     offset: 00:00:00
   action:
   - service: cover.close_cover
-    entity_id: cover.blinds
+    entity_id: cover.left_blind
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.right_blind
+      position: 35
 
 - alias: Andrew goes to sleep
   trigger:
@@ -214,9 +218,13 @@
     data:
       entity_id: switch.bedtime
   - service: cover.set_cover_position
-    entity_id: cover.blinds
+    entity_id: cover.left_blind
     data:
       position: 20
+  - service: cover.set_cover_position
+    entity_id: cover.left_blind
+    data:
+      position: 45
   - service: light.turn_on
     entity_id: light.kitchen
     data:
