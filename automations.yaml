@@ -149,6 +149,9 @@
   action:
   - service: cover.close_cover
     entity_id: cover.left_blind
+  - service: cover.close_cover
+    data:
+      entity_id: cover.left_blind
   - service: cover.set_cover_position
     data:
       entity_id: cover.right_blind
