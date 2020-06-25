@@ -20,6 +20,9 @@
   - condition: state
     entity_id: person.andrew
     state: home
+  - condition: state
+    entity_id: switch.asleep
+    state: "off"
   - condition: sun
     after: sunset
     after_offset: "-01:00:00"
@@ -47,6 +50,9 @@
   - condition: state
     entity_id: person.andrew
     state: home
+  - condition: state
+    entity_id: switch.asleep
+    state: "off"
   - condition: sun
     after: sunset
   - condition: numeric_state
@@ -69,6 +75,9 @@
   - condition: state
     entity_id: person.andrew
     state: home
+  - condition: state
+    entity_id: switch.asleep
+    state: "off"
   - condition: state
     entity_id: switch.bedtime
     state: "on"
@@ -104,8 +113,11 @@
     minutes: /1
   condition:
   - condition: state
+    entity_id: switch.asleep
+    state: "off"
+  - condition: state
     entity_id: switch.bedtime
-    state: "on"
+    state: "off"
   - condition: state
     entity_id: person.andrew
     state: home
@@ -168,6 +180,9 @@
     entity_id: person.andrew
     state: home
   action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.asleep
   - service: switch.turn_off
     data:
       entity_id: switch.bedtime
@@ -217,6 +232,9 @@
       after: '6:00'
       before: '23:00'
   action:
+  - service: switch.turn_ooff
+    data:
+      entity_id: switch.asleep
   - service: switch.turn_off
     data:
       entity_id: switch.bedtime

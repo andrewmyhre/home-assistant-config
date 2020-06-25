@@ -42,6 +42,17 @@ switch:
         turn_off:
           - service: input_boolean.turn_off
             entity_id: input_boolean.bedtime
+  - platform: template
+    switches:
+      asleep:
+        value_template: >
+          {{ is_state('input_boolean.asleep', 'on') }}
+        turn_on:
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.asleep
+        turn_off:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.asleep
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
@@ -173,6 +184,8 @@ script: !include scripts.yaml
 input_boolean:
   bedtime:
     name: Bedtime
+  asleep:
+    name: Asleep
 
 tplink:
 
