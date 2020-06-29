@@ -243,7 +243,7 @@
     data:
       position: 20
   - service: cover.set_cover_position
-    entity_id: cover.left_blind
+    entity_id: cover.right_blind
     data:
       position: 45
   - service: light.turn_on
