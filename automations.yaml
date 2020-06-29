@@ -245,7 +245,7 @@
   - service: cover.set_cover_position
     entity_id: cover.right_blind
     data:
-      position: 45
+      position: 40
   - service: light.turn_on
     entity_id: light.kitchen
     data:
