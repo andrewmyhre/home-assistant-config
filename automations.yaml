@@ -232,7 +232,7 @@
       after: '6:00'
       before: '23:00'
   action:
-  - service: switch.turn_ooff
+  - service: switch.turn_off
     data:
       entity_id: switch.asleep
   - service: switch.turn_off
@@ -289,23 +289,6 @@
   action:
   - service: cover.open_cover
     entity_id: cover.blinds
-
-- alias: Raise the lights in the morning
-  trigger:
-  - event: sunrise
-    platform: sun
-  condition:
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: person.andrew
-      state: home
-  action:
-  - service: homeassistant.turn_on
-    entity_id: scene.morning
-  - data:
-      message: Good morning, I turned the lights on in the kitchen
-    service: notify.slack
 
 - alias: Rainy Day
   trigger:
