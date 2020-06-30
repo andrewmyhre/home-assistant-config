@@ -93,7 +93,11 @@
       friendly_name: AC Setting
       value_template: >-
         {% if is_state('input_select.ac_mode', "Fan") %}
-        Fan-{{states('input_select.ac_fan')}}
+          {% if is_state('input_select.ac_mode', "Auto") %}
+          Fan-Medium
+          {% else %} 
+          Fan-{{states('input_select.ac_fan')}}
+          {% endif %}
         {% elif is_state('input_select.ac_mode', "Off") %}
         Off
         {% else %}
