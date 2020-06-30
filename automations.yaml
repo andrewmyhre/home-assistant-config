@@ -214,8 +214,6 @@
       - 255
       - 80
       - 0
-
-
 - alias: Andrew wakes up
   trigger:
   - platform: event
@@ -261,7 +259,6 @@
     data:
       brightness: 100
       color_temp: 400
-
 - alias: Turn off the lights when I leave home
   trigger:
   - platform: state
@@ -279,7 +276,6 @@
   - service: notify.slack
     data:
       message: You left home so I turned the lights off
-
 - alias: Open the blinds when I leave home
   trigger:
   - platform: state
@@ -289,7 +285,6 @@
   action:
   - service: cover.open_cover
     entity_id: cover.blinds
-
 - alias: Rainy Day
   trigger:
   - platform: state
@@ -310,7 +305,6 @@
   - service: notify.slack
     data:
       message: It's raining so I turned the lights on
-
 - alias: Dark Morning
   trigger:
   - platform: numeric_state
@@ -331,7 +325,6 @@
   - service: notify.slack
     data:
       message: It's dark so I turned the lights on
-
 - alias: Begin vacuuming
   trigger:
   - platform: time
@@ -346,7 +339,6 @@
   - service: notify.slack
     data:
       message: I started the Roomba on a cleaning cycle
-
 - alias: Select theme
   id: hass_theme
   initial_state: 'on'
@@ -357,7 +349,6 @@
   - service: frontend.set_theme
     data_template:
       name: '{{ states.input_select.hass_theme.state }}'
-
 - alias: Turn off the lights when I go to sleep
   condition:
   - condition: state
@@ -375,7 +366,6 @@
     entity_id: light.vanity
     data:
       brightness: 10
-
 - alias: Andrew arrives home
   id: arrive_home
   trigger:
@@ -389,7 +379,6 @@
     state: home
   action:
   - service: script.raise_lights
-
 - alias: Smoke
   id: smoke
   trigger:
@@ -402,7 +391,6 @@
     entity_id: cover.left_blind
     data:
       position: 70
-
 - alias: Movie time
   id: movie_time
   trigger:
@@ -442,6 +430,11 @@
       command: "{{ states.sensor.ac_setting.state}}"
 - alias: AC Off
   id: set_ac_off
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
@@ -450,6 +443,11 @@
         option: "Off"
 - alias: AC Fan
   id: set_ac_mode_fan
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
@@ -458,6 +456,11 @@
         option: "Fan"
 - alias: AC Cool
   id: set_ac_mode_cool
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
@@ -466,6 +469,11 @@
         option: "Cool"
 - alias: AC Eco
   id: set_ac_mode_eco
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
@@ -474,6 +482,11 @@
         option: "Eco"
 - alias: AC Low
   id: set_ac_fan_low
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
@@ -482,6 +495,11 @@
         option: "Low"
 - alias: AC Medium
   id: set_ac_fan_medium
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
@@ -490,6 +508,11 @@
         option: "Medium"
 - alias: AC High
   id: set_ac_fan_high
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
@@ -498,6 +521,11 @@
         option: "High"
 - alias: AC Auto
   id: set_ac_fan_auto
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
   action:
     service: 
     - service: input_select.select_option
