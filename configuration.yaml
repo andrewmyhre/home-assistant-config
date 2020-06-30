@@ -72,6 +72,10 @@ switch:
           - service: automation.trigger
             data:
               entity_id: automation.ac_fan
+        turn_off:
+          - service: automation.trigger
+            data:
+              entity_id: automation.ac_off
       ac_cool:
         friendly_name: AC Cool Mode
         value_template: >
@@ -80,6 +84,10 @@ switch:
           - service: automation.trigger
             data:
               entity_id: automation.ac_cool
+        turn_off:
+          - service: automation.trigger
+            data:
+              entity_id: automation.ac_off
       ac_eco:
         friendly_name: AC Eco Mode
         value_template: >
@@ -88,6 +96,10 @@ switch:
           - service: automation.trigger
             data:
               entity_id: automation.ac_eco
+        turn_off:
+          - service: automation.trigger
+            data:
+              entity_id: automation.ac_off
       ac_fan_low:
         friendly_name: AC Fan Low
         value_template: >
@@ -96,6 +108,10 @@ switch:
           - service: automation.trigger
             data:
               entity_id: automation.set_ac_fan_low
+        turn_off:
+          - service: automation.trigger
+            data:
+              entity_id: automation.ac_off
       ac_fan_medium:
         friendly_name: AC Fan Medium
         value_template: >
@@ -104,6 +120,10 @@ switch:
           - service: automation.trigger
             data:
               entity_id: automation.set_ac_fan_medium
+        turn_off:
+          - service: automation.trigger
+            data:
+              entity_id: automation.ac_off
       ac_fan_high:
         friendly_name: AC Fan High
         value_template: >
@@ -112,6 +132,10 @@ switch:
           - service: automation.trigger
             data:
               entity_id: automation.set_ac_fan_high
+        turn_off:
+          - service: automation.trigger
+            data:
+              entity_id: automation.ac_off
       ac_fan_auto:
         friendly_name: AC Fan Auto
         value_template: >
@@ -120,6 +144,10 @@ switch:
           - service: automation.trigger
             data:
               entity_id: automation.set_ac_fan_auto
+        turn_off:
+          - service: automation.trigger
+            data:
+              entity_id: automation.ac_off
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
