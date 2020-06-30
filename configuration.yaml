@@ -55,7 +55,7 @@ switch:
             entity_id: input_boolean.asleep
       ac:
         value_template: >
-          {{ !is_state('input_mode.ac_mode', 'Off') }}
+          {{ not is_state('input_mode.ac_mode', 'Off') }}
         turn_on:
           - service: automation.trigger
             entity_id: automation.ac_cool
