@@ -57,97 +57,113 @@ switch:
         value_template: >
           {{ not is_state('input_select.ac_mode', 'Off') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_cool
+              entity_id: input_select.ac_mode
+              option: "Cool"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
       ac_fan:
         friendly_name: AC Fan Mode
         value_template: >
           {{ is_state('input_select.ac_mode', 'Fan') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_fan
+              entity_id: input_select.ac_mode
+              option: "Fan"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
       ac_cool:
         friendly_name: AC Cool Mode
         value_template: >
           {{ is_state('input_select.ac_mode', 'Cool') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_cool
+              entity_id: input_select.ac_mode
+              option: "Cool"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
       ac_eco:
         friendly_name: AC Eco Mode
         value_template: >
           {{ is_state('input_select.ac_mode', 'Eco') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_eco
+              entity_id: input_select.ac_mode
+              option: "Eco"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
       ac_fan_low:
         friendly_name: AC Fan Low
         value_template: >
           {{ is_state('input_select.ac_fan', 'Low') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.set_ac_fan_low
+              entity_id: input_select.ac_fan
+              option: "Low"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
       ac_fan_medium:
         friendly_name: AC Fan Medium
         value_template: >
           {{ is_state('input_select.ac_fan', 'Medium') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.set_ac_fan_medium
+              entity_id: input_select.ac_fan
+              option: "Medium"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
       ac_fan_high:
         friendly_name: AC Fan High
         value_template: >
           {{ is_state('input_select.ac_fan', 'High') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.set_ac_fan_high
+              entity_id: input_select.ac_fan
+              option: "High"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
       ac_fan_auto:
         friendly_name: AC Fan Auto
         value_template: >
           {{ is_state('input_select.ac_fan', 'Auto') }}
         turn_on:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.set_ac_fan_auto
+              entity_id: input_select.ac_fan
+              option: "Auto"
         turn_off:
-          - service: automation.trigger
+          - service: input_select.select_option
             data:
-              entity_id: automation.ac_off
+              entity_id: input_select.ac_mode
+              option: "Off"
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
