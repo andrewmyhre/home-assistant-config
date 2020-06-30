@@ -428,11 +428,10 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_mode
-        option: "Off"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_mode
+      option: "Off"
 - alias: AC Fan
   id: set_ac_mode_fan
   trigger:
@@ -441,11 +440,10 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_mode
-        option: "Fan"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_mode
+      option: "Fan"
 - alias: AC Cool
   id: set_ac_mode_cool
   trigger:
@@ -454,11 +452,10 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_mode
-        option: "Cool"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_mode
+      option: "Cool"
 - alias: AC Eco
   id: set_ac_mode_eco
   trigger:
@@ -467,11 +464,10 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_mode
-        option: "Eco"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_mode
+      option: "Eco"
 - alias: AC Low
   id: set_ac_fan_low
   trigger:
@@ -480,11 +476,10 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_fan
-        option: "Low"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_fan
+      option: "Low"
 - alias: AC Medium
   id: set_ac_fan_medium
   trigger:
@@ -493,11 +488,10 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_fan
-        option: "Medium"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_fan
+      option: "Medium"
 - alias: AC High
   id: set_ac_fan_high
   trigger:
@@ -506,11 +500,10 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_fan
-        option: "High"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_fan
+      option: "High"
 - alias: AC Auto
   id: set_ac_fan_auto
   trigger:
@@ -519,8 +512,7 @@
     from: not_home
     to: home
   action:
-    service: 
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.ac_fan
-        option: "Auto"
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_fan
+      option: "Auto"
