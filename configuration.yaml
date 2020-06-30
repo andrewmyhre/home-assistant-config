@@ -58,12 +58,10 @@ switch:
           {{ !is_state('input_mode.ac_mode', 'Off') }}
         turn_on:
           - service: automation.trigger
-            service_data:
-              entity_id: automation.ac_cool
+            entity_id: automation.ac_cool
         turn_off:
           - service: automation.trigger
-            service_data:
-              entity_id: automation.ac_off
+            entity_id: automation.ac_off
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
