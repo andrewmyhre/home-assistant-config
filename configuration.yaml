@@ -55,13 +55,15 @@ switch:
             entity_id: input_boolean.asleep
       ac:
         value_template: >
-          {{ not is_state('input_mode.ac_mode', 'Off') }}
+          {{ not is_state('input_select.ac_mode', 'Off') }}
         turn_on:
           - service: automation.trigger
-            entity_id: automation.ac_cool
+            data:
+              entity_id: automation.ac_cool
         turn_off:
           - service: automation.trigger
-            entity_id: automation.ac_off
+            data:
+              entity_id: automation.ac_off
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
