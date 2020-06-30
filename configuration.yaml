@@ -187,6 +187,23 @@ input_boolean:
   asleep:
     name: Asleep
 
+input_select:
+  ac_mode:
+    name: AC mode
+    options:
+    - Fan
+    - Cool
+    - Eco
+    initial: Cool
+
+input_number:
+  ac_temp:
+    name: AC temperature
+    initial: 74
+    min: 66
+    max: 78
+    step: 1
+
 tplink:
 
 scene:
