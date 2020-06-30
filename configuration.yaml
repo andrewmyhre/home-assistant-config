@@ -259,10 +259,11 @@ input_select:
   ac_mode:
     name: AC mode
     options:
-    - Fan
-    - Cool
-    - Eco
-    initial: Cool
+    - "Off"
+    - "Fan"
+    - "Cool"
+    - "Eco"
+    initial: "Off"
   ac_fan:
     name: AC fan speed
     options:

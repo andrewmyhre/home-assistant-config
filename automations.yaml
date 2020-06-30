@@ -429,3 +429,15 @@
       brightness: "{{ [state_attr('light.lounge_lamp','brightness'),20]|min}}"
   - service: light.turn_off
     entity_id: light.spot
+
+- alias: Set AC
+  id: set_ac
+  trigger:
+    platform: state
+    entity_id: sensor.ac_setting
+  action:
+    service: remote.send_command
+    data_template:
+      entity_id: remote.broadlink
+      device: "AC"
+      command: "{{ states.ac_setting.state}}"
