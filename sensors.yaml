@@ -102,7 +102,7 @@
     ac_mode:
       friendly_name: AC Mode
       value_template: {{ states.input_select.ac_mode.state }}
-    ac_mode:
+    ac_fan:
       friendly_name: AC Fan
       value_template: {{ states.input_select.ac_fan.state }}
     ac_temp:
