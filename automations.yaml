@@ -439,4 +439,4 @@
     data_template:
       entity_id: remote.broadlink
       device: "AC"
-      command: "{{ states.ac_setting.state}}"
+      command: "{{ states.sensor.ac_setting.state}}"
