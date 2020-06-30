@@ -263,6 +263,14 @@ input_select:
     - Cool
     - Eco
     initial: Cool
+  ac_fan:
+    name: AC fan speed
+    options:
+    - Auto
+    - Low
+    - Medium
+    - High
+    initial: Auto
   hass_theme:
     name: HASS Themes
     options:
