@@ -53,6 +53,17 @@ switch:
         turn_off:
           - service: input_boolean.turn_off
             entity_id: input_boolean.asleep
+      ac:
+        value_template: >
+          {{ !is_state('input_mode.ac_mode', 'Off') }}
+        turn_on:
+          - service: automation.trigger
+            service_data:
+              entity_id: automation.ac_cool
+        turn_off:
+          - service: automation.trigger
+            service_data:
+              entity_id: automation.ac_off
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
@@ -186,6 +197,8 @@ input_boolean:
     name: Bedtime
   asleep:
     name: Asleep
+  ac:
+    name: AC
 
 input_number:
   ac_temp:
