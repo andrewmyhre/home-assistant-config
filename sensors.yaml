@@ -94,6 +94,8 @@
       value_template: >-
         {% if is_state('input_select.ac_mode', "Fan") %}
         Fan-Only
+        {% elif is_state('input_select.ac_mode', "Off") %}
+        Off
         {% else %}
         {{ states.input_select.ac_mode.state }}-{{ states.input_select.ac_fan.state }}-{{ states.input_number.ac_temp.state|int }}
         {% endif %}
