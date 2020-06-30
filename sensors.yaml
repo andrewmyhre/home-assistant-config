@@ -101,11 +101,14 @@
         {% endif %}
     ac_mode:
       friendly_name: AC Mode
-      value_template: {{ states.input_select.ac_mode.state }}
+      value_template: >-
+        {{ states('input_select.ac_mode') }}
     ac_fan:
       friendly_name: AC Fan
-      value_template: {{ states.input_select.ac_fan.state }}
+      value_template: >-
+        {{ states('input_select.ac_fan') }}
     ac_temp:
       friendly_name: AC Temp
-      value_template: {{ states.input_number.ac_temp.state }}
+      value_template: >-
+        {{ states('input_number.ac_temp') }}
       unit_of_measurement: Metric
