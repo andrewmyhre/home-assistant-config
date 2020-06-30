@@ -286,7 +286,7 @@ input_boolean:
 
 input_number:
   ac_temp:
-    name: AC temperature
+    name: temperature
     initial: 74
     min: 66
     max: 78
