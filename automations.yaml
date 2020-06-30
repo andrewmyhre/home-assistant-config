@@ -203,8 +203,8 @@
       entity_id: light.lounge_lamp
       brightness: 1
       rgb_color:
-      - 255
-      - 80
+      - 100
+      - 20
       - 0
   - service: input_select.select_option
     data:
