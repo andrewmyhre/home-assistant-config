@@ -528,4 +528,17 @@
     data:
       entity_id: remote.broadlink
       device: "TV"
+      command: "On"
+- alias: Tv Off
+  id: turn_tv_off
+  trigger:
+  - platform: state
+    entity_id: person.andrew
+    from: not_home
+    to: home
+  action:
+  - service: remote.send_command
+    data:
+      entity_id: remote.broadlink
+      device: "TV"
       command: "Off"
