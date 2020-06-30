@@ -429,7 +429,6 @@
       brightness: "{{ [state_attr('light.lounge_lamp','brightness'),20]|min}}"
   - service: light.turn_off
     entity_id: light.spot
-
 - alias: Set AC
   id: set_ac
   trigger:
