@@ -91,4 +91,9 @@
   sensors:
     ac_setting:
       friendly_name: AC Setting
-      value_template: "{{ state_attr('ac_mode', 'value') }}"
+      value_template: >-
+        {% if is_state('input_select.ac_mode', "Fan") %}
+        Fan-Only
+        {% else %}
+        {{ states.input_select.ac_mode.state }}-{{ states.input_select.ac_fan.state }}-{{ states.input_number.ac_temp.state|int }}
+        {% endif %}
