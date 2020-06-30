@@ -164,6 +164,19 @@ switch:
             data:
               entity_id: input_select.ac_mode
               option: "Off"
+      tv_toggle:
+        friendly_name: Telly
+        value_template: >
+          {{ is_state('media_player.tv', 'on')}}
+        turn_on:
+        - service: remote.send_command
+          data:
+            entity_id: remote.broadlink
+            device: "TV"
+            command: "On"
+        - service: media_player.turn_off
+          data:
+            entity_id: media_player.tv
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
