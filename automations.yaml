@@ -440,3 +440,67 @@
       entity_id: remote.broadlink
       device: "AC"
       command: "{{ states.sensor.ac_setting.state}}"
+- alias: AC Off
+  id: set_ac_off
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_mode
+        option: "Off"
+- alias: AC Fan
+  id: set_ac_mode_fan
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_mode
+        option: "Fan"
+- alias: AC Cool
+  id: set_ac_mode_cool
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_mode
+        option: "Cool"
+- alias: AC Eco
+  id: set_ac_mode_eco
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_mode
+        option: "Eco"
+- alias: AC Low
+  id: set_ac_fan_low
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_fan
+        option: "Low"
+- alias: AC Medium
+  id: set_ac_fan_medium
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_fan
+        option: "Medium"
+- alias: AC High
+  id: set_ac_fan_high
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_fan
+        option: "High"
+- alias: AC Auto
+  id: set_ac_fan_auto
+  action:
+    service: 
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.ac_fan
+        option: "Auto"
