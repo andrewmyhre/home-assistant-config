@@ -187,15 +187,6 @@ input_boolean:
   asleep:
     name: Asleep
 
-input_select:
-  ac_mode:
-    name: AC mode
-    options:
-    - Fan
-    - Cool
-    - Eco
-    initial: Cool
-
 input_number:
   ac_temp:
     name: AC temperature
@@ -265,6 +256,13 @@ weather:
     mode: daily
 
 input_select:
+  ac_mode:
+    name: AC mode
+    options:
+    - Fan
+    - Cool
+    - Eco
+    initial: Cool
   hass_theme:
     name: HASS Themes
     options:
