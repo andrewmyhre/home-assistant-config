@@ -11,7 +11,6 @@
   action:
   - service: cover.close_cover
     entity_id: cover.blinds
-
 - alias: Lights up (pre-sunset)
   trigger:
   - platform: time_pattern
@@ -41,7 +40,6 @@
       - 255
       - 255
       - 255
-
 - alias: Lights down (post-sunset)
   trigger:
   - platform: time_pattern
@@ -66,7 +64,6 @@
     data_template:
       brightness: > 
         {{ 100 + (((15 + state_attr('sun.sun', 'elevation')) / 10) * 100)|int(0) }}
-
 - alias: Lights down (pre-bedtime)
   trigger:
   - platform: time_pattern
@@ -95,7 +92,6 @@
       - "{{(state_attr('light.main_lights', 'rgb_color')[0])|int(0) }}"
       - "{{(state_attr('light.main_lights', 'rgb_color')[1]-5)|int(0) }}"
       - "{{(state_attr('light.main_lights', 'rgb_color')[2]-5)|int(0) }}"
-
 - alias: Recognise when it's bedtime
   trigger:
   - platform: event
@@ -106,7 +102,6 @@
   - service: switch.turn_on
     data:
       entity_id: switch.bedtime
-
 - alias: Lights up (pre-sunrise)
   trigger:
   - platform: time_pattern
@@ -138,7 +133,6 @@
       - "{{state_attr('light.main_lights', 'rgb_color')[0]*(((state_attr('sun.sun', 'elevation')-10) / 20) * 230)|int(0) }}"
       - "{{state_attr('light.main_lights', 'rgb_color')[1]*(((state_attr('sun.sun', 'elevation')-10) / 20) * 210)|int(0) }}"
       - "{{state_attr('light.main_lights', 'rgb_color')[2]*(((state_attr('sun.sun', 'elevation')-10) / 20) * 210)|int(0) }}"
-
 - alias: Send roomba home when Andrew comes home
   trigger:
   - platform: state
@@ -152,7 +146,6 @@
   action:
   - service: vacuum.return_to_base
     entity_id: vacuum.roomba
-
 - alias: Close the blinds when the sun has set
   trigger:
   - platform: sun
@@ -168,7 +161,6 @@
     data:
       entity_id: cover.right_blind
       position: 35
-
 - alias: Andrew goes to sleep
   trigger:
   - platform: event
