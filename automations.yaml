@@ -280,6 +280,10 @@
   - service: notify.slack
     data:
       message: You left home so I turned the lights off
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_mode
+      option: "Off"
 - alias: Open the blinds when I leave home
   trigger:
   - platform: state
