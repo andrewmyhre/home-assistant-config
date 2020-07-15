@@ -116,3 +116,13 @@
       value_template: >-
         {{ states('input_number.ac_temp') }}
       unit_of_measurement: Metric
+- platform: template
+  sensors:
+    weather_temperature:
+      friendly_name: "Ambient Temperature"
+      value_template: >-
+        {{ state_attr('weather.knyc_daynight','temperature' )}}
+    weather_humidity:
+      friendly_name: "Ambient Humidity"
+      value_template: >-
+        {{ state_attr('weather.knyc_daynight','humidity')}}
