@@ -558,3 +558,22 @@
       entity_id: remote.broadlink
       device: "TV"
       command: "Off"
+- alias: Keep the right blind above the AC when it's on
+  trigger:
+  - platform: numeric_state
+    entity_id: cover.right_blind
+    below: 35
+  - platform: state
+    entity_id: sensor.ac_mod
+    from: "Off"
+  condition:
+    condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.ac_mode
+      state: "Off"
+  action:
+  - service: cover.set_cover_position
+    entity_id: cover.right_blind
+    data:
+      position: 35
