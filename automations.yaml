@@ -560,9 +560,8 @@
       command: "Off"
 - alias: Keep the right blind above the AC when it's on
   trigger:
-  - platform: numeric_state
-    entity_id: cover.right_blind
-    below: 35
+  - platform: template
+    value_template: "{% if state_attr('cover.right_blind', 'current_position') < 35 %}true{% endif %}"
   - platform: state
     entity_id: sensor.ac_mode
     from: "Off"
