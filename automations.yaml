@@ -566,11 +566,15 @@
     entity_id: sensor.ac_mode
     from: "Off"
   condition:
-    condition: not
+    condition: and
     conditions:
-    - condition: state
-      entity_id: sensor.ac_mode
-      state: "Off"
+    - condition: template
+      value_template: "{% if state_attr('cover.right_blind', 'current_position') < 35 %}true{%endif%}"
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: sensor.ac_mode
+        state: "Off"
   action:
   - service: cover.set_cover_position
     entity_id: cover.right_blind
