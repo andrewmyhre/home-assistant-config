@@ -564,7 +564,7 @@
     entity_id: cover.right_blind
     below: 35
   - platform: state
-    entity_id: sensor.ac_mod
+    entity_id: sensor.ac_mode
     from: "Off"
   condition:
     condition: not
