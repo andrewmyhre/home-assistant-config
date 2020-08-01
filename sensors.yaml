@@ -47,7 +47,7 @@
   sensors:
     roomba_bin_full:
       value_template: >-
-        {% if is_state('status.vacuum.the_dog.attributes.bin_full', 'true') %}
+        {% if state_attr('vacuum.the_dog','bin_full') %}
         Bin is full
         {% else %}
         Bin is not full
