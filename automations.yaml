@@ -562,9 +562,6 @@
   trigger:
   - platform: template
     value_template: "{% if state_attr('cover.right_blind', 'current_position') < 35 %}true{% endif %}"
-  - platform: state
-    entity_id: sensor.ac_mode
-    from: "Off"
   condition:
     condition: not
     conditions:
