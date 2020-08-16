@@ -357,6 +357,16 @@
   - service: frontend.set_theme
     data_template:
       name: '{{ states.input_select.hass_theme.state }}'
+- alias: automate_ifttt
+  trigger:
+    - platform: event
+      event_type: ifttt_webhook_received
+      event_data:
+        action: 'goodnight'
+  action:
+    - service_template: '{{ trigger.event.data.service }}'
+      data_template:
+        entity_id: '{{ trigger.event.data.entity_id }}'
 - alias: Turn off the lights when I go to sleep
   condition:
   - condition: state
