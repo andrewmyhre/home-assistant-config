@@ -362,7 +362,7 @@
     - platform: event
       event_type: ifttt_webhook_received
       event_data:
-        action: 'goodnight'
+        action: 'call_service'
   action:
     - service_template: '{{ trigger.event.data.service }}'
       data_template:
