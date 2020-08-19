@@ -146,11 +146,7 @@
     recommend_ac:
       friendly_name: "Recommend AC"
       value_template: >-
-        {% if (states("sensor.recommend_ac_feel_temp") | float) + temp_adj > 74 %}
-        true
-        {% else %}
-        false
-        {% endif %}
+        {% if (states("sensor.recommend_ac_feel_temp") | float) > 74 %}true{% else %}false{% endif %}
     recommend_ac_temp:
       friendly_name: "Recommended AC temp"
       value_template: >-
