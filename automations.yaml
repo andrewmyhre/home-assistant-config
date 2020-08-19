@@ -592,9 +592,9 @@
       option: "{{states('sensor.recommend_ac_temp')}}"
   - service: input_select.select_option
     data:
-      entity_id: input_number.ac_fan
+      entity_id: input_select.ac_fan
       option: "Auto"
   - service: input_select.select_option
     data:
-      entity_id: input_number.ac_mode
+      entity_id: input_select.ac_mode
       option: "Cool"
