@@ -129,7 +129,7 @@
 - platform: template
   sensors:
     recommend_ac_feel_temp:
-      friendly: "Recommend AC Feel Temp"
+      friendly_name: "Recommend AC Feel Temp"
       value_template: >-
         {% set temp_feel = 0 %}
         {% set temp_adj = 0 %}
