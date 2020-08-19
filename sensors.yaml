@@ -128,37 +128,22 @@
         {{ state_attr('weather.knyc_daynight','humidity')}}
 - platform: template
   sensors:
-    recommend_ac_feel_temp:
-      friendly_name: "Recommend AC Feel Temp"
+    apparent_temperature:
+      friendly_name: "Apparnt Temperature"
       value_template: >-
-        {% set temp_feel = 0 %}
-        {% set temp_adj = 0 %}
-        {% if states("sensor.weather_humidity") | float >= 80 %}
-        {% set temp_adj = 4 %}
-        {% elif states("sensor.weather_humidity") | float >= 60 %}
-        {% set temp_adj = 3 %}
-        {% elif states("sensor.weather_humidity") | float >= 40 %}
-        {% set temp_adj = 2 %}
-        {% elif states("sensor.weather_humidity") | float >= 20 %}
-        {% set temp_adj = 1 %}
-        {% endif %}
-        {{ (states("sensor.weather_temperature") | float) + temp_adj }}
+        {% set weather_temp_c = ((states('sensor.weather_temperature') | float) - 32) * 5/9 %}
+        {% set es = 0.6108 * e ** (17.27 * weather_temp_c / (weather_temp_c + 237.3)) %} {# Saturation vapor pressure in kPa #}
+        {% set ea = ((states('sensor.weather_humidity') | float) / 100 * es) %} {# Actual vapor pressure in kPa #}
+        {% set tp = -1.3 + 0.92 * weather_temp_c + 2.2 * ea %} {# Apparent temperature in C #}
+        {% set tpf = (tp * 9/5) + 32 %}
+        {{ tpf | round(1) }}
 - platform: template
   sensors:
     recommend_ac:
       friendly_name: "Recommend AC"
       value_template: >-
-        {% if (states("sensor.recommend_ac_feel_temp") | float) > 74 %}true{% else %}false{% endif %}
+        {% if (states("sensor.apparent_temperature") | float) > 76 %}true{% else %}false{% endif %}
     recommend_ac_temp:
       friendly_name: "Recommended AC temp"
       value_template: >-
-        {% set temp_feel = 0 %}
-        {% set temp_adj = 0 %}
-        {% if states("sensor.weather_humidity") | float >= 80 %}
-        {% set temp_adj = 3 %}
-        {% elif states("sensor.weather_humidity") | float >= 60 %}
-        {% set temp_adj = 2 %}
-        {% elif states("sensor.weather_humidity") | float >= 40 %}
-        {% set temp_adj = 1 %}
-        {% endif %}
-        {{ (states("sensor.weather_temperature") | int) - temp_adj }}
+        {{ 78 - ((states("sensor.apparent_temperature") | int) - 76) / 2 }}
