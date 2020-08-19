@@ -151,11 +151,10 @@
         {% set temp_feel = 0 %}
         {% set temp_adj = 0 %}
         {% if states("sensor.weather_humidity") | float >= 80 %}
-        {% set temp_adj = 10 %}
+        {% set temp_adj = 6 %}
         {% elif states("sensor.weather_humidity") | float >= 60 %}
-        {% set temp_adj = 7 %}
+        {% set temp_adj = 4 %}
         {% elif states("sensor.weather_humidity") | float >= 40 %}
-        {% set temp_adj = 5 %}
+        {% set temp_adj = 2 %}
         {% endif %}
-        {% set temp_feel = (states("sensor.weather_temperature") | int) + temp_adj %}
-        {{ temp_feel }}
+        {{ (states("sensor.weather_temperature") | int) - temp_adj }}
