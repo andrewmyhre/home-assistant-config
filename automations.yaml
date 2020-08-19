@@ -604,9 +604,11 @@
   - condition: state
     entity_id: person.andrew
     state: home
-  - condition: state
-    entity_id: input_select.ac_mode
-    state: "Off"
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.ac_mode
+      state: "Off"
   trigger:
   - platform: template
     value_template: "{% if states('sensor.recommend_ac') == 'false' %}true{%else%}false{%endif%}"
