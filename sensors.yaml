@@ -131,17 +131,7 @@
     recommend_ac:
       friendly_name: "Recommend AC"
       value_template: >-
-        {% set temp_feel = 0 %}
-        {% set temp_adj = 0 %}
-        {% if states("sensor.weather_humidity") | float >= 80 %}
-        {% set temp_adj = 10 %}
-        {% elif states("sensor.weather_humidity") | float >= 60 %}
-        {% set temp_adj = 7 %}
-        {% elif states("sensor.weather_humidity") | float >= 40 %}
-        {% set temp_adj = 5 %}
-        {% endif %}
-        {% set temp_feel = (states("sensor.weather_temperature") | int) + temp_adj %}
-        {% if temp_feel > 74 %}
+        {% if states('sensor.recommend_ac_temp') |float > 74 %}
         yes
         {% else %}
         no
