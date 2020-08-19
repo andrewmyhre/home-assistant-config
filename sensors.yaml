@@ -140,7 +140,7 @@
         {% elif states("sensor.weather_humidity") | float >= 40 %}
         {% set temp_adj = 4 %}
         {% endif %}
-        {{ states("sensor.weather_temperature") | float) + temp_adj }}
+        {{ (states("sensor.weather_temperature") | float) + temp_adj }}
 - platform: template
   sensors:
     recommend_ac:
