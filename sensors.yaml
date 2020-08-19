@@ -136,7 +136,6 @@
         {% else %}
         no
         {% endif %}
-          recommend_ac:
     recommend_ac_temp:
       friendly_name: "Recommended AC temp"
       value_template: >-
