@@ -140,7 +140,7 @@
         {% elif states("sensor.weather_humidity") | float >= 40 %}
         {% set temp_adj = 5 %}
         {% endif %}
-        {% (states("sensor.weather_temperature") | int) + temp_adj > 74 %}
+        {% if (states("sensor.weather_temperature") | int) + temp_adj > 74 %}
         yes
         {% else %}
         no
