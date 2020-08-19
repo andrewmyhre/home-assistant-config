@@ -573,8 +573,8 @@
     entity_id: cover.right_blind
     data:
       position: 35
-- alias: AC Recommended
-  id: set_ac_recommended
+- alias: AC Turn On When Recommended
+  id: set_ac_recommended_turn_on
   condition:
   - condition: state
     entity_id: person.andrew
@@ -598,3 +598,22 @@
     data:
       entity_id: input_select.ac_mode
       option: "Cool"
+- alias: AC Turn Off When Recommended
+  id: set_ac_recommended_turn_off
+  condition:
+  - condition: state
+    entity_id: person.andrew
+    state: home
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.ac_mode
+      state: "Off"
+  trigger:
+  - platform: template
+    value_template: "{% if states('sensor.recommend_ac') == 'false' %}true{%else%}false{%endif%}"
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.ac_mode
+      option: "Off"
