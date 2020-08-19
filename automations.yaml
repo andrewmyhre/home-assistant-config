@@ -579,6 +579,9 @@
   - condition: state
     entity_id: person.andrew
     state: home
+  - condition: state
+    entity_id: sensor.ac_mode
+    state: "Off"
   trigger:
   - platform: template
     value_template: "{% if states('sensor.recommend_ac') == 'yes' %}true{%endif%}"
@@ -587,3 +590,11 @@
     data_template:
       entity_id: input_number.ac_temp
       option: "{{states('sensor.recommend_ac_temp')}}"
+  - service: input_select.select_option
+    data:
+      entity_id: input_number.ac_fan
+      option: "Auto"
+  - service: input_select.select_option
+    data:
+      entity_id: input_number.ac_mode
+      option: "Cool"
