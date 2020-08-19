@@ -604,7 +604,7 @@
   - condition: state
     entity_id: person.andrew
     state: home
-  - condition: template
+  - condition: state
     entity_id: input_select.ac_mode
     state: "Off"
   trigger:
