@@ -142,8 +142,10 @@
     recommend_ac:
       friendly_name: "Recommend AC"
       value_template: >-
-        {% if (states("sensor.apparent_temperature") | float) > 76 %}true{% else %}false{% endif %}
+        {% if (states("sensor.apparent_temperature") | float) > 74 %}true{% else %}false{% endif %}
+- platform: template
+  sensors:
     recommend_ac_temp:
       friendly_name: "Recommended AC temp"
       value_template: >-
-        {{ 78 - ((apparent_temperature | round(0) - 72) / 2) }}
+        {{ 78 - ((states("sensor.apparent_temperature") | round(0) - 72) / 2) }}
