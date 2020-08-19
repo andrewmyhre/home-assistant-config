@@ -141,9 +141,9 @@
         {% set temp_adj = 5 %}
         {% endif %}
         {% if (states("sensor.weather_temperature") | int) + temp_adj > 74 %}
-        yes
+        true
         {% else %}
-        no
+        false
         {% endif %}
     recommend_ac_temp:
       friendly_name: "Recommended AC temp"

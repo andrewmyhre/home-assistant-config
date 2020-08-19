@@ -582,11 +582,9 @@
   - condition: state
     entity_id: sensor.ac_mode
     state: "Off"
-  - condition: template
-    value_template: "{% if states('sensor.recommend_ac') == 'yes' %}true{%endif%}"
   trigger:
   - platform: template
-    value_template: "false"
+    value_template: "{{ states('sensor.recommend_ac') }}"
   action:
   - service: input_select.select_option
     data_template:
