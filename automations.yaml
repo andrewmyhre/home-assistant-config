@@ -166,7 +166,7 @@
   - platform: event
     event_type: ifttt_webhook_received
     event_data:
-      action: goodnight
+      action: 'goodnight'
   condition:
   - condition: state
     entity_id: person.andrew
@@ -367,23 +367,6 @@
     - service_template: '{{ trigger.event.data.service }}'
       data_template:
         entity_id: '{{ trigger.event.data.entity_id }}'
-- alias: Turn off the lights when I go to sleep
-  condition:
-  - condition: state
-    entity_id: person.andrew
-    state: home
-  trigger:
-  - platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: goodnight
-  action:
-  - service: light.turn_off
-    entity_id: light.all_lights
-  - service: light.turn_on
-    entity_id: light.bathroom_1
-    data:
-      brightness: 30
 - alias: Andrew arrives home
   id: arrive_home
   trigger:
@@ -590,3 +573,16 @@
     entity_id: cover.right_blind
     data:
       position: 35
+- alias: AC Recommended
+  id: set_ac_recommended
+  condition:
+  - condition: state
+    entity_id: person.andrew
+    state: home
+  - condition: template
+    value_template: "{% if states('sensor.recommend_ac') == 'yes'%}true{%endif}"
+  action:
+  - service: input_select.select_option
+    data_template:
+      entity_id: input_number.ac_temp
+      option: "{{states('sensor.recommend_ac_temp')}}"
