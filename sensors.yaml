@@ -128,19 +128,25 @@
         {{ state_attr('weather.knyc_daynight','humidity')}}
 - platform: template
   sensors:
-    recommend_ac:
-      friendly_name: "Recommend AC"
+    recommend_ac_feel_temp:
+      friendly: "Recommend AC Feel Temp"
       value_template: >-
         {% set temp_feel = 0 %}
         {% set temp_adj = 0 %}
         {% if states("sensor.weather_humidity") | float >= 80 %}
-        {% set temp_adj = 10 %}
+        {% set temp_adj = 8 %}
         {% elif states("sensor.weather_humidity") | float >= 60 %}
-        {% set temp_adj = 7 %}
+        {% set temp_adj = 6 %}
         {% elif states("sensor.weather_humidity") | float >= 40 %}
-        {% set temp_adj = 5 %}
+        {% set temp_adj = 4 %}
         {% endif %}
-        {% if (states("sensor.weather_temperature") | int) + temp_adj > 74 %}
+        {{ states("sensor.weather_temperature") | float) + temp_adj }}
+- platform: template
+  sensors:
+    recommend_ac:
+      friendly_name: "Recommend AC"
+      value_template: >-
+        {% if (states("sensor.recommend_ac_feel_temp") | float) + temp_adj > 74 %}
         true
         {% else %}
         false
