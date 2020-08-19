@@ -600,9 +600,9 @@
       entity_id: input_number.ac_temp
       option: "{{states('sensor.recommend_ac_temp')}}"
   - service: input_select.select_option
-    data:
+    data_template:
       entity_id: input_select.ac_fan
-      option: "Auto"
+      option: "{%if states('input_select.ac_mode')=='Off'%}Low{%else%}{{states('input_select.ac_fan')}}{%endif%}"
   - service: input_select.select_option
     data:
       entity_id: input_select.ac_mode
