@@ -146,4 +146,4 @@
     recommend_ac_temp:
       friendly_name: "Recommended AC temp"
       value_template: >-
-        {{ 78 - ((states("sensor.apparent_temperature") | int) - 76) / 2 }}
+        {{ (78 - ((states("sensor.apparent_temperature") | int) - 76) / 2) | round(1) }}
