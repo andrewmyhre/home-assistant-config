@@ -582,12 +582,14 @@
   - condition: state
     entity_id: sensor.ac_mode
     state: "Off"
-  - condition: state
-    entity_id: switch.asleep
-    state: "on"
-  - condition: state
-    entity_id: switch.auto_ac
-    state: "on"
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: switch.asleep
+      state: "on"
+    - condition: state
+      entity_id: switch.auto_ac
+      state: "on"
   trigger:
   - platform: template
     value_template: "{{ states('sensor.recommend_ac') }}"
@@ -625,12 +627,14 @@
     - condition: state
       entity_id: input_select.ac_mode
       state: "Off"
-  - condition: state
-    entity_id: switch.asleep
-    state: "on"
-  - condition: state
-    entity_id: switch.auto_ac
-    state: "on"
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: switch.asleep
+      state: "on"
+    - condition: state
+      entity_id: switch.auto_ac
+      state: "on"
   trigger:
   - platform: template
     value_template: "{% if states('sensor.recommend_ac') == 'false' %}true{%else%}false{%endif%}"
