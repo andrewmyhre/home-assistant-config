@@ -129,7 +129,7 @@
 - platform: template
   sensors:
     apparent_temperature:
-      friendly_name: "Apparnt Temperature"
+      friendly_name: "Apparent Temperature"
       value_template: >-
         {% set weather_temp_c = ((states('sensor.weather_temperature') | float) - 32) * 5/9 %}
         {% set es = 0.6108 * e ** (17.27 * weather_temp_c / (weather_temp_c + 237.3)) %} {# Saturation vapor pressure in kPa #}

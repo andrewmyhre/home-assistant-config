@@ -604,10 +604,10 @@
     from: "off"
     to: "on"
   action:
-  - service: input_select.select_option
+  - service: input_number.set_value
     data_template:
       entity_id: input_number.ac_temp
-      option: "{{states('sensor.recommend_ac_temp')}}"
+      value: "{{states('sensor.recommend_ac_temp')}}"
   - service: input_select.select_option
     data_template:
       entity_id: input_select.ac_fan
