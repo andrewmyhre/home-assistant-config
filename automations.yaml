@@ -587,7 +587,7 @@
     state: "on"
   - condition: state
     entity_id: switch.auto_ac
-    to: "on"
+    state: "on"
   trigger:
   - platform: template
     value_template: "{{ states('sensor.recommend_ac') }}"
