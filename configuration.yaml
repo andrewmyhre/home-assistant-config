@@ -53,6 +53,15 @@ switch:
         turn_off:
           - service: input_boolean.turn_off
             entity_id: input_boolean.asleep
+      auto_ac:
+        value_template: >
+          {{ is_state('input_boolean.auto_ac', 'on') }}
+        turn_on:
+          - service: input_boolean.turn_on
+            entity_id: input_boolean.auto_ac
+        turn_off:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.auto_ac
       ac:
         value_template: >
           {{ not is_state('input_select.ac_mode', 'Off') }}
@@ -313,6 +322,8 @@ input_boolean:
     name: Asleep
   ac:
     name: AC
+  auto_ac:
+    name: Auto AC
 
 input_number:
   ac_temp:
