@@ -595,6 +595,8 @@
     value_template: "{{ states('sensor.recommend_ac') }}"
   - platform: state
     entity_id: sensor.recommend_ac_temp
+    from: "false"
+    to: "true"
   - platform: state
     entity_id: switch.asleep
     from: "off"
@@ -636,8 +638,10 @@
       entity_id: switch.auto_ac
       state: "on"
   trigger:
-  - platform: template
-    value_template: "{% if states('sensor.recommend_ac') == 'false' %}true{%else%}false{%endif%}"
+  - platform: state
+    entity_id: sensor.recommend_ac
+    from: "true"
+    to: "false"
   - platform: state
     entity_id: sensor.recommend_ac_temp
   - platform: state
