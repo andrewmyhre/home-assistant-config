@@ -263,23 +263,22 @@
     data:
       brightness: 100
       color_temp: 400
-- alias: Turn off the lights when I leave home
+- alias: Andrew leaves home
   trigger:
   - platform: state
     entity_id: person.andrew
     from: home
     to: not_home
   action:
-  - service: homeassistant.turn_off
+  - service: light.turn_off
     entity_id: light.all_lights
-  - service: homeassistant.turn_off
-    entity_id: switch.living_room
   - service: ifttt.trigger
     data:
       event: light_living_room_off
-  - service: notify.slack
-    data:
-      message: You left home so I turned the lights off
+  - service: switch.turn_off
+    entity_id: switch.auto_ac
+  - service: switch.turn_off
+    entity_id: switch.ac
   - service: input_select.select_option
     data:
       entity_id: input_select.ac_mode
@@ -379,7 +378,14 @@
     entity_id: person.andrew
     state: home
   action:
-  - service: script.raise_lights
+  - service: light.turn_on
+    entity_id: light.bathroom
+  - service: light.turn_on
+    entity_id: light.kitchen
+  - service: light.turn_on
+    entity_id: light.lounge
+  - service: switch.turn_on
+    entity_id: switch.auto_ac
 - alias: Smoke
   id: smoke
   trigger:
