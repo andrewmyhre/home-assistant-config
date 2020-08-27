@@ -278,7 +278,7 @@
   - service: switch.turn_off
     entity_id: switch.auto_ac
   - service: switch.turn_off
-    entity_id: switch.ac
+    entity_id: switch.auto_ac
   - service: input_select.select_option
     data:
       entity_id: input_select.ac_mode
