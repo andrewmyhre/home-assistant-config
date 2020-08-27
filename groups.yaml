@@ -29,3 +29,17 @@ light:
   - light.bathroom_light_2
   - light.bathroom_light_3
   - light.bathroom_light_4
+- platform: group
+  name: All Lights
+  entities:
+  - light.bedroom_light_1
+  - light.bedroom_lamp
+  - light.kitchen_light_1
+  - light.kitchen_light_2
+  - light.lounge_light_1
+  - light.lounge_light_2
+  - light.lounge_light_3
+  - light.bathroom_light_1
+  - light.bathroom_light_2
+  - light.bathroom_light_3
+  - light.bathroom_light_4
