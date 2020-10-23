@@ -386,7 +386,7 @@ ifttt:
 roomba:
   - host: 192.168.1.206
     blid: "3175000031817670"
-    password: ":1:1575845387:taEElBRsoG0VTOHW"
+    password: ":1:1603466160:H19mofCiE8PbEblG"
 
 weather:
   - platform: darksky
