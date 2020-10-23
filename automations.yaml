@@ -153,14 +153,7 @@
     offset: 00:00:00
   action:
   - service: cover.close_cover
-    entity_id: cover.left_blind
-  - service: cover.close_cover
-    data:
-      entity_id: cover.left_blind
-  - service: cover.set_cover_position
-    data:
-      entity_id: cover.right_blind
-      position: 35
+    entity_id: cover.blinds
 - alias: Andrew goes to sleep
   trigger:
   - platform: event
@@ -240,14 +233,14 @@
   - service: switch.turn_off
     data:
       entity_id: switch.bedtime
-  - service: cover.set_cover_position
-    entity_id: cover.left_blind
-    data:
-      position: 20
-  - service: cover.set_cover_position
-    entity_id: cover.right_blind
-    data:
-      position: 40
+  # - service: cover.set_cover_position
+  #   entity_id: cover.left_blind
+  #   data:
+  #     position: 20
+  # - service: cover.set_cover_position
+  #   entity_id: cover.right_blind
+  #   data:
+  #     position: 40
   - service: light.turn_on
     entity_id: light.kitchen
     data:
@@ -386,18 +379,6 @@
     entity_id: light.lounge
   - service: switch.turn_on
     entity_id: switch.auto_ac
-- alias: Smoke
-  id: smoke
-  trigger:
-  - platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: smoke
-  action:
-  - service: cover.set_cover_position
-    entity_id: cover.left_blind
-    data:
-      position: 70
 - alias: Movie time
   id: movie_time
   trigger:
@@ -557,28 +538,28 @@
       entity_id: remote.broadlink
       device: "TV"
       command: "Off"
-- alias: Keep the right blind above the AC when it's on
-  trigger:
-  - platform: template
-    value_template: "{% if state_attr('cover.right_blind', 'current_position') < 35 %}true{%endif%}"
-  - platform: state
-    entity_id: sensor.ac_mode
-    from: "Off"
-  condition:
-    condition: and
-    conditions:
-    - condition: template
-      value_template: "{% if state_attr('cover.right_blind', 'current_position') < 35 %}true{%endif%}"
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: sensor.ac_mode
-        state: "Off"
-  action:
-  - service: cover.set_cover_position
-    entity_id: cover.right_blind
-    data:
-      position: 35
+# - alias: Keep the right blind above the AC when it's on
+#   trigger:
+#   - platform: template
+#     value_template: "{% if state_attr('cover.right_blind', 'current_position') < 35 %}true{%endif%}"
+#   - platform: state
+#     entity_id: sensor.ac_mode
+#     from: "Off"
+#   condition:
+#     condition: and
+#     conditions:
+#     - condition: template
+#       value_template: "{% if state_attr('cover.right_blind', 'current_position') < 35 %}true{%endif%}"
+#     - condition: not
+#       conditions:
+#       - condition: state
+#         entity_id: sensor.ac_mode
+#         state: "Off"
+#   action:
+  # - service: cover.set_cover_position
+  #   entity_id: cover.right_blind
+  #   data:
+  #     position: 35
 - alias: AC Turn On When Recommended
   id: set_ac_recommended_turn_on
   condition:

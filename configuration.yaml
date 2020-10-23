@@ -309,8 +309,6 @@ cover:
 - platform: group
   name: Blinds
   entities:
-  - cover.left_blind
-  - cover.right_blind
 
 automation: !include automations.yaml
 script: !include scripts.yaml
