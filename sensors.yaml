@@ -1,4 +1,3 @@
-- platform: yr
 - platform: darksky
   api_key: 67ddd9c4685908120132aaa3253821f7
   forecast:
