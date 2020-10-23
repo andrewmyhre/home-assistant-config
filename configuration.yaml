@@ -256,12 +256,12 @@ light:
 - platform: group
   name: Kitchen
   entities:
-  - light.kitchen_light_1
-  - light.kitchen_light_2
+  - light.kitchen_bulb_1
+  - light.kitchen_bulb_2
 - platform: group
   name: Bedroom
   entities:
-  - light.bedroom_light_1
+  - light.bedroom_bulb_1
 - platform: group
   name: Spot
   entities:
@@ -271,10 +271,10 @@ light:
 - platform: group
   name: Lounge
   entities:
-  - light.lounge_light_1
-  - light.lounge_light_2
-  - light.lounge_light_3
-  - light.lounge_lamp
+  - light.lounge_bulb_1
+  - light.lounge_bulb_2
+  - light.lounge_bulb_3
+  #- light.lounge_lamp
 - platform: group
   name: Bathroom
   entities:

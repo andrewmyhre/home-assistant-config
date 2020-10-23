@@ -10,36 +10,36 @@ light:
 - platform: group
   name: Kitchen
   entities:
-  - light.kitchen_light_1
-  - light.kitchen_light_2
+  - light.kitchen_bulb_1
+  - light.kitchen_bulb_2
 - platform: group
   name: Bedroom
   entities:
-  - light.bedroom_light_1
+  - light.bedroom_bulb_1
 - platform: group
   name: Lounge
   entities:
-  - light.lounge_light_1
-  - light.lounge_light_2
-  - light.lounge_light_3
+  - light.lounge_bulb_1
+  - light.lounge_bulb_2
+  - light.lounge_bulb_3
 - platform: group
   name: Bathroom
   entities:
-  - light.bathroom_light_1
-  - light.bathroom_light_2
-  - light.bathroom_light_3
-  - light.bathroom_light_4
+  - light.bathroom_bulb_1
+  - light.bathroom_bulb_2
+  - light.bathroom_bulb_3
+  - light.bathroom_bulb_4
 - platform: group
   name: All Lights
   entities:
-  - light.bedroom_light_1
+  - light.bedroom_bulb_1
   - light.bedroom_lamp
-  - light.kitchen_light_1
-  - light.kitchen_light_2
-  - light.lounge_light_1
-  - light.lounge_light_2
-  - light.lounge_light_3
-  - light.bathroom_light_1
-  - light.bathroom_light_2
-  - light.bathroom_light_3
-  - light.bathroom_light_4
+  - light.kitchen_bulb_1
+  - light.kitchen_bulb_2
+  - light.lounge_bulb_1
+  - light.lounge_bulb_2
+  - light.lounge_bulb_3
+  - light.bathroom_bulb_1
+  - light.bathroom_bulb_2
+  - light.bathroom_bulb_3
+  - light.bathroom_bulb_4
