@@ -211,6 +211,10 @@
     data:
       entity_id: input_number.ac_temp
       value: 78
+  - service: cover.set_cover_position
+    entity_id: cover.blinds
+    data:
+      position: 0
 - alias: Andrew wakes up
   trigger:
   - platform: event
@@ -233,14 +237,14 @@
   - service: switch.turn_off
     data:
       entity_id: switch.bedtime
-  # - service: cover.set_cover_position
-  #   entity_id: cover.left_blind
-  #   data:
-  #     position: 20
-  # - service: cover.set_cover_position
-  #   entity_id: cover.right_blind
-  #   data:
-  #     position: 40
+  - service: cover.set_cover_position
+    entity_id: cover.left_blind_2
+    data:
+      position: 20
+  - service: cover.set_cover_position
+    entity_id: cover.right_blind_2
+    data:
+      position: 40
   - service: light.turn_on
     entity_id: light.kitchen
     data:
